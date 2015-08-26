@@ -16,7 +16,7 @@ matrix:
     - php: 7.0
     - php: hhvm
   include:
-    - php: 5.3
+    - php: 5.4
       env: 'COMPOSER_FLAGS="--prefer-stable --prefer-lowest"'
 
 before_script:

@@ -12,9 +12,6 @@ class Payment
     /* BoaCompra Billing URL - must be sent through a POST method */
     const BILLING_URL = 'https://billing.boacompra.com/payment.php';
 
-    /* DataValidator object */
-    protected $validator;
-
     /* VirtualStoreIdentification object */
     protected $ident;
 

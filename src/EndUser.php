@@ -9,9 +9,6 @@ class EndUser
 {
     use PropertyValidateAffect;
 
-    /* DataValidator object */
-    protected $validator;
-
     /* End user email (max length 60) (REQUIRED) */
     protected $email;
 
