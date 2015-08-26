@@ -50,7 +50,6 @@ class RoboFile extends \Robo\Tasks
             return 1;
         }
 
-        $token = file_get_contents(__DIR__.'/.scrutinizer.token');
         $this->taskExec('vendor/bin/ocular code-coverage:upload --format=php-clover '.__DIR__.'/build/logs/clover.xml')->dir(__DIR__)->run();
     }
 
