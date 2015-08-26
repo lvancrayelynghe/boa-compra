@@ -51,11 +51,11 @@ class PaymentTest extends PHPUnit_Framework_TestCase
     public function testSetters()
     {
         $country_iso   = 'US';
-        $project_id    = '3';
+        $project_id    = 3;
         $payment_id    = '2';
-        $payment_group = '1';
+        $payment_group = 1;
         $token         = '123';
-        $test_mode     = '1';
+        $test_mode     = 1;
 
         $this->assertInstanceOf('Benoth\BoaCompra\Payment', $this->basicPayment->setCountryIso($country_iso));
         $this->assertInstanceOf('Benoth\BoaCompra\Payment', $this->basicPayment->setProjectId($project_id));
