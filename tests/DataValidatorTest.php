@@ -14,8 +14,9 @@ class DataValidatorTest extends PHPUnit_Framework_TestCase
     public function testNonEmptyString()
     {
         $this->assertEquals(false, $this->validator->nonEmptyString(''));
-        $this->assertEquals(false, $this->validator->nonEmptyString(1));
         $this->assertEquals(false, $this->validator->nonEmptyString('qwerty', 2));
+        $this->assertEquals(true, $this->validator->nonEmptyString(1));
+        $this->assertEquals(true, $this->validator->nonEmptyString(1.2));
         $this->assertEquals(true, $this->validator->nonEmptyString('qwerty'));
     }
 

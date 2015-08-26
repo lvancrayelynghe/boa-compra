@@ -4,6 +4,10 @@ class DataValidator
 {
     public function nonEmptyString($string, $maxLength = null)
     {
+        if (is_int($string) || is_float($string)) {
+            $string = (string)$string;
+        }
+
         if (!is_string($string) || empty($string)) {
             return false;
         }
