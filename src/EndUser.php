@@ -7,7 +7,7 @@
  */
 class EndUser
 {
-    /* End user email (max length 60) (REQUIRED) */
+    /* DataValidator object */
     protected $validator;
 
     /* End user email (max length 60) (REQUIRED) */
