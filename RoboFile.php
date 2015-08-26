@@ -8,7 +8,16 @@ class RoboFile extends \Robo\Tasks
     public function all()
     {
         $this->phpAll();
-        $this->testsRun();
+        $this->testsAll();
+    }
+
+    /**
+     * Run all the fixers
+     */
+    public function testsAll()
+    {
+        $this->testsPhpunit();
+        $this->testsScrutinizer();
     }
 
     /**
@@ -26,9 +35,23 @@ class RoboFile extends \Robo\Tasks
     /**
      * Run PhpUnit tests
      */
-    public function testsRun()
+    public function testsPhpunit()
     {
         $this->taskExec('vendor/bin/phpunit')->dir(__DIR__)->run();
+    }
+
+    /**
+     * Send coverage to Scrutinizer
+     */
+    public function testsScrutinizer()
+    {
+        if (!file_exists(__DIR__.'/build/logs/clover.xml')) {
+            $this->say('build/logs/clover.xml file not found. Run PhpUnit first.');
+            return 1;
+        }
+
+        $token = file_get_contents(__DIR__.'/.scrutinizer.token');
+        $this->taskExec('vendor/bin/ocular code-coverage:upload --format=php-clover '.__DIR__.'/build/logs/clover.xml')->dir(__DIR__)->run();
     }
 
     /**
