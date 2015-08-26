@@ -144,35 +144,35 @@ class PaymentTest extends PHPUnit_Framework_TestCase
 
     public function testOrderIdEmptyException()
     {
-        $this->setExpectedException('Exception', 'Order ID must be provided');
+        $this->setExpectedException('Exception', 'Order ID must be provided and have a max length of 30');
 
         $payment = new Payment($this->vsi, $this->endUser, $this->others->return, $this->others->notify_url, $this->others->currency_code, '', $this->others->order_description, $this->others->amount);
     }
 
     public function testOrderIdLengthException()
     {
-        $this->setExpectedException('Exception', 'Order ID must have a max length of 30');
+        $this->setExpectedException('Exception', 'Order ID must be provided and have a max length of 30');
 
         $payment = new Payment($this->vsi, $this->endUser, $this->others->return, $this->others->notify_url, $this->others->currency_code, $this->longString, $this->others->order_description, $this->others->amount);
     }
 
     public function testOrderDescriptionEmptyException()
     {
-        $this->setExpectedException('Exception', 'Order description must be provided');
+        $this->setExpectedException('Exception', 'Order description must be provided and  have a max length of 200');
 
         $payment = new Payment($this->vsi, $this->endUser, $this->others->return, $this->others->notify_url, $this->others->currency_code, $this->others->order_id, '', $this->others->amount);
     }
 
     public function testOrderDescriptionLengthException()
     {
-        $this->setExpectedException('Exception', 'Order description must have a max length of 200');
+        $this->setExpectedException('Exception', 'Order description must be provided and  have a max length of 200');
 
         $payment = new Payment($this->vsi, $this->endUser, $this->others->return, $this->others->notify_url, $this->others->currency_code, $this->others->order_id, $this->longString, $this->others->amount);
     }
 
     public function testAmountEmptyExceptionFormat()
     {
-        $this->setExpectedException('Exception', 'Order amount must be provided');
+        $this->setExpectedException('Exception', 'Order amount must be an integer (amount without commas or dots) with max length of 7');
 
         $payment = new Payment($this->vsi, $this->endUser, $this->others->return, $this->others->notify_url, $this->others->currency_code, $this->others->order_id, $this->others->order_description, '');
     }

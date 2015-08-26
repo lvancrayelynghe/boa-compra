@@ -8,6 +8,9 @@
 class EndUser
 {
     /* End user email (max length 60) (REQUIRED) */
+    protected $validator;
+
+    /* End user email (max length 60) (REQUIRED) */
     protected $email;
 
     /* End User full name (max length 60) */
@@ -48,7 +51,9 @@ class EndUser
 
     public function __construct($email)
     {
-        if (filter_var($email, FILTER_VALIDATE_EMAIL) === false || mb_strlen($email) > 60) {
+        $this->validator = new DataValidator();
+
+        if (!$this->validator->nonEmptyEmail($email, 60)) {
             throw new \Exception('Invalid email address provided (must be valid and max length of 60)');
         }
 
@@ -122,7 +127,7 @@ class EndUser
 
     public function setName($name)
     {
-        if (!is_string($name) || empty($name) || mb_strlen($name) > 60) {
+        if (!$this->validator->nonEmptyString($name, 60)) {
             throw new \Exception('Invalid name. Must be a non-empty string with max length of 60');
         }
 
@@ -133,7 +138,7 @@ class EndUser
 
     public function setNumber($number)
     {
-        if (!is_string($number) || empty($number) || mb_strlen($number) > 10) {
+        if (!$this->validator->nonEmptyString($number, 10)) {
             throw new \Exception('Invalid number. Must be a non-empty string with max length of 10');
         }
 
@@ -144,7 +149,7 @@ class EndUser
 
     public function setStreet($street)
     {
-        if (!is_string($street) || empty($street) || mb_strlen($street) > 60) {
+        if (!$this->validator->nonEmptyString($street, 60)) {
             throw new \Exception('Invalid street. Must be a non-empty string with max length of 60');
         }
 
@@ -155,7 +160,7 @@ class EndUser
 
     public function setSubUrb($suburb)
     {
-        if (!is_string($suburb) || empty($suburb) || mb_strlen($suburb) > 60) {
+        if (!$this->validator->nonEmptyString($suburb, 60)) {
             throw new \Exception('Invalid suburb. Must be a non-empty string with max length of 60');
         }
 
@@ -166,7 +171,7 @@ class EndUser
 
     public function setZipcode($zipcode)
     {
-        if (!ctype_digit($zipcode) || empty($zipcode) || mb_strlen((string) $zipcode) > 8) {
+        if (!$this->validator->nonEmptyInt($zipcode, 8)) {
             throw new \Exception('Invalid zipcode. Must be a non-empty string with only numbers, with max length of 8');
         }
 
@@ -177,7 +182,7 @@ class EndUser
 
     public function setCity($city)
     {
-        if (!is_string($city) || empty($city) || mb_strlen($city) > 60) {
+        if (!$this->validator->nonEmptyString($city, 60)) {
             throw new \Exception('Invalid city. Must be a non-empty string with max length of 60');
         }
 
@@ -188,7 +193,7 @@ class EndUser
 
     public function setState($state)
     {
-        if (!is_string($state) || empty($state) || mb_strlen($state) > 20) {
+        if (!$this->validator->nonEmptyString($state, 20)) {
             throw new \Exception('Invalid state. Must be a non-empty string with max length of 20');
         }
 
@@ -199,7 +204,7 @@ class EndUser
 
     public function setCountry($country)
     {
-        if (!is_string($country) || empty($country) || mb_strlen($country) > 20) {
+        if (!$this->validator->nonEmptyString($country, 20)) {
             throw new \Exception('Invalid country. Must be a non-empty string with max length of 20');
         }
 
@@ -210,7 +215,7 @@ class EndUser
 
     public function setPhone($phone)
     {
-        if (!is_string($phone) || empty($phone) || mb_strlen($phone) > 20) {
+        if (!$this->validator->nonEmptyString($phone, 20)) {
             throw new \Exception('Invalid phone number. Must be a non-empty string with max length of 20');
         }
 
@@ -221,7 +226,7 @@ class EndUser
 
     public function setCPF($cpf)
     {
-        if (!is_string($cpf) || empty($cpf) || mb_strlen($cpf) > 20) {
+        if (!$this->validator->nonEmptyString($cpf, 20)) {
             throw new \Exception('Invalid CPF. Must be a non-empty string with max length of 20');
         }
 
@@ -243,7 +248,7 @@ class EndUser
 
     public function setCharacter($character)
     {
-        if (!is_string($character) || empty($character) || mb_strlen($character) > 100) {
+        if (!$this->validator->nonEmptyString($character, 100)) {
             throw new \Exception('Invalid Character or player login. Must be a non-empty string (max length of 100)');
         }
 

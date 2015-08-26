@@ -58,11 +58,13 @@ class Payment
 
     public function __construct(VirtualStoreIdentification $ident, EndUser $endUser, $returnUrl, $notifyUrl, $currencyCode, $orderId, $orderDescription, $amount)
     {
-        if (!$this->validateUrl($returnUrl)) {
+        $this->validator = new DataValidator();
+
+        if (!$this->validator->nonEmptyUrl($returnUrl, 200)) {
             throw new \Exception('Invalid return URL provided (scheme must be HTTP(s) must be valid and max length of 200)');
         }
 
-        if (!$this->validateUrl($notifyUrl)) {
+        if (!$this->validator->nonEmptyUrl($notifyUrl, 200)) {
             throw new \Exception('Invalid notify URL provided (scheme must be HTTP(s) must be valid and max length of 200)');
         }
 
@@ -74,27 +76,15 @@ class Payment
             throw new \Exception('Invalid currency code provided. Possible values are ARS,BOB,BRL,CLP,COP,CRC,EUR,MXN,NIO,PEN,TRY,USD');
         }
 
-        if (empty($orderId)) {
-            throw new \Exception('Order ID must be provided');
+        if (!$this->validator->nonEmptyString($orderId, 30)) {
+            throw new \Exception('Order ID must be provided and have a max length of 30');
         }
 
-        if (mb_strlen($orderId) > 30) {
-            throw new \Exception('Order ID must have a max length of 30');
+        if (!$this->validator->nonEmptyString($orderDescription, 200)) {
+            throw new \Exception('Order description must be provided and  have a max length of 200');
         }
 
-        if (empty($orderDescription)) {
-            throw new \Exception('Order description must be provided');
-        }
-
-        if (mb_strlen($orderDescription) > 200) {
-            throw new \Exception('Order description must have a max length of 200');
-        }
-
-        if (empty($amount)) {
-            throw new \Exception('Order amount must be provided');
-        }
-
-        if (!ctype_digit($amount) || mb_strlen((string) $amount) > 7) {
+        if (!$this->validator->nonEmptyInt($amount, 7)) {
             throw new \Exception('Order amount must be an integer (amount without commas or dots) with max length of 7');
         }
 
@@ -185,7 +175,7 @@ class Payment
 
     public function setCountryIso($countryIso)
     {
-        if (!is_string($countryIso) || empty($countryIso) || mb_strlen($countryIso) > 2) {
+        if (!$this->validator->nonEmptyString($countryIso, 2)) {
             throw new \Exception('Invalid country iso code. Must be a non-empty string with max length of 2');
         }
 
@@ -247,14 +237,5 @@ class Payment
         $this->testMode = $testMode;
 
         return $this;
-    }
-
-    protected function validateUrl($url)
-    {
-        if (filter_var($url, FILTER_VALIDATE_URL) === false || mb_substr($url, 0, 4) !== 'http' || mb_strlen($url) > 200) {
-            return false;
-        }
-
-        return true;
     }
 }
