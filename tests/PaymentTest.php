@@ -74,112 +74,112 @@ class PaymentTest extends PHPUnit_Framework_TestCase
 
     public function testCountryIsoException()
     {
-        $this->setExpectedException('Exception', 'Invalid country iso code. Must be a non-empty string with max length of 2');
+        $this->setExpectedException('Exception', 'Invalid countryIso. Must be nonEmptyString (max length of 2)');
 
         $this->basicPayment->setCountryIso($this->longString);
     }
 
     public function testProjectIdException()
     {
-        $this->setExpectedException('Exception', 'Invalid project ID. Must be a non-empty string with max length of 6');
+        $this->setExpectedException('Exception', 'Invalid projectId. Must be nonEmptyString (max length of 6)');
 
         $this->basicPayment->setProjectId($this->longString);
     }
 
     public function testPaymentIdException()
     {
-        $this->setExpectedException('Exception', 'Invalid payment ID. Must be a non-empty string with max length of 6');
+        $this->setExpectedException('Exception', 'Invalid paymentId. Must be nonEmptyString (max length of 6)');
 
         $this->basicPayment->setPaymentId($this->longString);
     }
 
     public function testPaymentGroupException()
     {
-        $this->setExpectedException('Exception', 'Invalid payment group. Must be a non-empty string with max length of 20');
+        $this->setExpectedException('Exception', 'Invalid paymentGroup. Must be nonEmptyString (max length of 20)');
 
         $this->basicPayment->setPaymentGroup($this->longString);
     }
 
     public function testTokenException()
     {
-        $this->setExpectedException('Exception', 'Invalid external partner token. Must be a non-empty string with max length of 32');
+        $this->setExpectedException('Exception', 'Invalid token. Must be nonEmptyString (max length of 32)');
 
         $this->basicPayment->setToken($this->longString);
     }
 
     public function testTestModeException()
     {
-        $this->setExpectedException('Exception', 'Invalid test mode. Valid values are 0 or 1');
+        $this->setExpectedException('Exception', 'Invalid testMode. Must be validStringBool');
 
         $this->basicPayment->setTestMode('3');
     }
 
     public function testReturnUrlException()
     {
-        $this->setExpectedException('Exception', 'Invalid return URL provided (scheme must be HTTP(s) must be valid and max length of 200)');
+        $this->setExpectedException('Exception', 'Invalid returnUrl. Must be nonEmptyUrl (max length of 200)');
 
         $payment = new Payment($this->vsi, $this->endUser, 'ftp://user:pass@localhost.dev/test', $this->others->notify_url, $this->others->currency_code, $this->others->order_id, $this->others->order_description, $this->others->amount);
     }
 
     public function testNotifyUrlFormatException()
     {
-        $this->setExpectedException('Exception', 'Invalid notify URL provided (scheme must be HTTP(s) must be valid and max length of 200)');
+        $this->setExpectedException('Exception', 'Invalid notifyUrl. Must be validUrl (max length of 200)');
 
         $payment = new Payment($this->vsi, $this->endUser, $this->others->return, 'ftp://user:pass@localhost.dev/test', $this->others->currency_code, $this->others->order_id, $this->others->order_description, $this->others->amount);
     }
 
     public function testNotifyUrlPortException()
     {
-        $this->setExpectedException('Exception', 'Invalid notify URL provided (must use port 80 or 443)');
+        $this->setExpectedException('Exception', 'Invalid notifyUrl. Must be validUrl (max length of 200)');
 
         $payment = new Payment($this->vsi, $this->endUser, $this->others->return, 'http://localhost.dev:8080/test', $this->others->currency_code, $this->others->order_id, $this->others->order_description, $this->others->amount);
     }
 
     public function testCurrencyCodeException()
     {
-        $this->setExpectedException('Exception', 'Invalid currency code provided. Possible values are ARS,BOB,BRL,CLP,COP,CRC,EUR,MXN,NIO,PEN,TRY,USD');
+        $this->setExpectedException('Exception', 'Invalid currencyCode. Must be validCurrencyCode (max length of 200)');
 
         $payment = new Payment($this->vsi, $this->endUser, $this->others->return, $this->others->notify_url, 'CAD', $this->others->order_id, $this->others->order_description, $this->others->amount);
     }
 
     public function testOrderIdEmptyException()
     {
-        $this->setExpectedException('Exception', 'Order ID must be provided and have a max length of 30');
+        $this->setExpectedException('Exception', 'Invalid orderId. Must be nonEmptyString (max length of 30)');
 
         $payment = new Payment($this->vsi, $this->endUser, $this->others->return, $this->others->notify_url, $this->others->currency_code, '', $this->others->order_description, $this->others->amount);
     }
 
     public function testOrderIdLengthException()
     {
-        $this->setExpectedException('Exception', 'Order ID must be provided and have a max length of 30');
+        $this->setExpectedException('Exception', 'Invalid orderId. Must be nonEmptyString (max length of 30)');
 
         $payment = new Payment($this->vsi, $this->endUser, $this->others->return, $this->others->notify_url, $this->others->currency_code, $this->longString, $this->others->order_description, $this->others->amount);
     }
 
     public function testOrderDescriptionEmptyException()
     {
-        $this->setExpectedException('Exception', 'Order description must be provided and  have a max length of 200');
+        $this->setExpectedException('Exception', 'Invalid orderDescription. Must be nonEmptyString (max length of 200)');
 
         $payment = new Payment($this->vsi, $this->endUser, $this->others->return, $this->others->notify_url, $this->others->currency_code, $this->others->order_id, '', $this->others->amount);
     }
 
     public function testOrderDescriptionLengthException()
     {
-        $this->setExpectedException('Exception', 'Order description must be provided and  have a max length of 200');
+        $this->setExpectedException('Exception', 'Invalid orderDescription. Must be nonEmptyString (max length of 200)');
 
         $payment = new Payment($this->vsi, $this->endUser, $this->others->return, $this->others->notify_url, $this->others->currency_code, $this->others->order_id, $this->longString, $this->others->amount);
     }
 
     public function testAmountEmptyExceptionFormat()
     {
-        $this->setExpectedException('Exception', 'Order amount must be an integer (amount without commas or dots) with max length of 7');
+        $this->setExpectedException('Exception', 'Invalid amount. Must be nonEmptyInt (max length of 7)');
 
         $payment = new Payment($this->vsi, $this->endUser, $this->others->return, $this->others->notify_url, $this->others->currency_code, $this->others->order_id, $this->others->order_description, '');
     }
 
     public function testAmountFormatExceptionFormat()
     {
-        $this->setExpectedException('Exception', 'Order amount must be an integer (amount without commas or dots) with max length of 7');
+        $this->setExpectedException('Exception', 'Invalid amount. Must be nonEmptyInt (max length of 7)');
 
         $payment = new Payment($this->vsi, $this->endUser, $this->others->return, $this->others->notify_url, $this->others->currency_code, $this->others->order_id, $this->others->order_description, 'azerty');
     }

@@ -7,6 +7,8 @@
  */
 class Payment
 {
+    use PropertyValidateAffect;
+
     /* BoaCompra Billing URL - must be sent through a POST method */
     const BILLING_URL = 'https://billing.boacompra.com/payment.php';
 
@@ -62,43 +64,15 @@ class Payment
     public function __construct(VirtualStoreIdentification $ident, EndUser $endUser, $returnUrl, $notifyUrl, $currencyCode, $orderId, $orderDescription, $amount)
     {
         $this->validator = new DataValidator();
+        $this->ident     = $ident;
+        $this->endUser   = $endUser;
 
-        if (!$this->validator->nonEmptyUrl($returnUrl, 200)) {
-            throw new \Exception('Invalid return URL provided (scheme must be HTTP(s) must be valid and max length of 200)');
-        }
-
-        if (!$this->validator->nonEmptyUrl($notifyUrl, 200)) {
-            throw new \Exception('Invalid notify URL provided (scheme must be HTTP(s) must be valid and max length of 200)');
-        }
-
-        if (!in_array(parse_url($notifyUrl, PHP_URL_PORT), array(null, 80, 443))) {
-            throw new \Exception('Invalid notify URL provided (must use port 80 or 443)');
-        }
-
-        if (!in_array($currencyCode, array('ARS', 'BOB', 'BRL', 'CLP', 'COP', 'CRC', 'EUR', 'MXN', 'NIO', 'PEN', 'TRY', 'USD'))) {
-            throw new \Exception('Invalid currency code provided. Possible values are ARS,BOB,BRL,CLP,COP,CRC,EUR,MXN,NIO,PEN,TRY,USD');
-        }
-
-        if (!$this->validator->nonEmptyString($orderId, 30)) {
-            throw new \Exception('Order ID must be provided and have a max length of 30');
-        }
-
-        if (!$this->validator->nonEmptyString($orderDescription, 200)) {
-            throw new \Exception('Order description must be provided and  have a max length of 200');
-        }
-
-        if (!$this->validator->nonEmptyInt($amount, 7)) {
-            throw new \Exception('Order amount must be an integer (amount without commas or dots) with max length of 7');
-        }
-
-        $this->ident            = $ident;
-        $this->endUser          = $endUser;
-        $this->returnUrl        = $returnUrl;
-        $this->notifyUrl        = $notifyUrl;
-        $this->currencyCode     = $currencyCode;
-        $this->orderId          = $orderId;
-        $this->orderDescription = $orderDescription;
-        $this->amount           = $amount;
+        $this->affectProperty('returnUrl', $returnUrl, 'nonEmptyUrl', 200);
+        $this->affectProperty('notifyUrl', $notifyUrl, 'validUrl', 200);
+        $this->affectProperty('currencyCode', $currencyCode, 'validCurrencyCode', 200);
+        $this->affectProperty('orderId', $orderId, 'nonEmptyString', 30);
+        $this->affectProperty('orderDescription', $orderDescription, 'nonEmptyString', 200);
+        $this->affectProperty('amount', $amount, 'nonEmptyInt', 7);
     }
 
     public function getBillingURL()
@@ -178,67 +152,31 @@ class Payment
 
     public function setCountryIso($countryIso)
     {
-        if (!$this->validator->nonEmptyString($countryIso, 2)) {
-            throw new \Exception('Invalid country iso code. Must be a non-empty string with max length of 2');
-        }
-
-        $this->countryIso = $countryIso;
-
-        return $this;
+        return $this->affectProperty('countryIso', $countryIso, 'nonEmptyString', 2);
     }
 
     public function setProjectId($projectId)
     {
-        if (!$this->validator->nonEmptyString($projectId, 6)) {
-            throw new \Exception('Invalid project ID. Must be a non-empty string with max length of 6');
-        }
-
-        $this->projectId = $projectId;
-
-        return $this;
+        return $this->affectProperty('projectId', $projectId, 'nonEmptyString', 6);
     }
 
     public function setPaymentId($paymentId)
     {
-        if (!$this->validator->nonEmptyString($paymentId, 6)) {
-            throw new \Exception('Invalid payment ID. Must be a non-empty string with max length of 6');
-        }
-
-        $this->paymentId = $paymentId;
-
-        return $this;
+        return $this->affectProperty('paymentId', $paymentId, 'nonEmptyString', 6);
     }
 
     public function setPaymentGroup($paymentGroup)
     {
-        if (!$this->validator->nonEmptyString($paymentGroup, 20)) {
-            throw new \Exception('Invalid payment group. Must be a non-empty string with max length of 20');
-        }
-
-        $this->paymentGroup = $paymentGroup;
-
-        return $this;
+        return $this->affectProperty('paymentGroup', $paymentGroup, 'nonEmptyString', 20);
     }
 
     public function setToken($token)
     {
-        if (!$this->validator->nonEmptyString($token, 32)) {
-            throw new \Exception('Invalid external partner token. Must be a non-empty string with max length of 32');
-        }
-
-        $this->token = $token;
-
-        return $this;
+        return $this->affectProperty('token', $token, 'nonEmptyString', 32);
     }
 
     public function setTestMode($testMode)
     {
-        if (!in_array($testMode, array('0', '1'))) {
-            throw new \Exception('Invalid test mode. Valid values are 0 or 1');
-        }
-
-        $this->testMode = $testMode;
-
-        return $this;
+        return $this->affectProperty('testMode', $testMode, 'validStringBool');
     }
 }

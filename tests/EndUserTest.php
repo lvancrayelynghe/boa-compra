@@ -74,21 +74,21 @@ class EndUserTest extends PHPUnit_Framework_TestCase
 
     public function testEmailExceptionFormat()
     {
-        $this->setExpectedException('Exception', 'Invalid email address provided (must be valid and max length of 60)');
+        $this->setExpectedException('Exception', 'Invalid email. Must be nonEmptyEmail (max length of 60)');
 
         $endUser = new EndUser('invalid-email-address');
     }
 
     public function testEmailExceptionLength()
     {
-        $this->setExpectedException('Exception', 'Invalid email address provided (must be valid and max length of 60)');
+        $this->setExpectedException('Exception', 'Invalid email. Must be nonEmptyEmail (max length of 60)');
 
         $endUser = new EndUser('very-very-very-very-very-very-very-very-long-email-address@example.com');
     }
 
     public function testNameException()
     {
-        $this->setExpectedException('Exception', 'Invalid name. Must be a non-empty string with max length of 60');
+        $this->setExpectedException('Exception', 'Invalid name. Must be nonEmptyString (max length of 60)');
 
         $endUser = new EndUser('example@example.com');
         $endUser->setName($this->longString);
@@ -96,7 +96,7 @@ class EndUserTest extends PHPUnit_Framework_TestCase
 
     public function testNumberException()
     {
-        $this->setExpectedException('Exception', 'Invalid number. Must be a non-empty string with max length of 10');
+        $this->setExpectedException('Exception', 'Invalid number. Must be nonEmptyString (max length of 10)');
 
         $endUser = new EndUser('example@example.com');
         $endUser->setNumber($this->longString);
@@ -168,7 +168,7 @@ class EndUserTest extends PHPUnit_Framework_TestCase
 
     public function testLanguageException()
     {
-        $this->setExpectedException('Exception', 'Invalid Language. Possible values are pt_BR, es_ES, en_US, pt_PT, tr_TR');
+        $this->setExpectedException('Exception', 'Invalid language. Must be validLanguage');
 
         $endUser = new EndUser('example@example.com');
         $endUser->setLanguage($this->longString);
@@ -176,7 +176,7 @@ class EndUserTest extends PHPUnit_Framework_TestCase
 
     public function testCharacterException()
     {
-        $this->setExpectedException('Exception', 'Invalid Character or player login. Must be a non-empty string (max length of 100)');
+        $this->setExpectedException('Exception', 'Invalid character. Must be nonEmptyString (max length of 100)');
 
         $endUser = new EndUser('example@example.com');
         $endUser->setCharacter($this->longString);

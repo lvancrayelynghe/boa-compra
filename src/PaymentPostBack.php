@@ -14,6 +14,17 @@ class PaymentPostBack
     /* PaymentNotification received from BoaCompra */
     protected $notification;
 
+    /* List of BoaCompra error codes and equivalent message */
+    protected $errorCodes = array(
+        2 => 'Incorrect parameters values',
+        3 => 'Order not found',
+        4 => 'Postback is missing data',
+        5 => 'Order not paid yet',
+        6 => 'Error reported by the Virtual Store',
+        7 => 'Value for "hash_key" parameter is incorrect',
+        9 => 'Wrong postback url. Please check the "Test Environment" section',
+    );
+
     public function __construct(PaymentNotification $notification)
     {
         $this->notification = $notification;
@@ -31,22 +42,18 @@ class PaymentPostBack
             // 0 - Order successfully confirmed.
             // 1 - Order already confirmed.
             return true;
-        } elseif ($code === 2) {
-            throw new \Exception('Incorrect parameters values');
-        } elseif ($code === 3) {
-            throw new \Exception('Order not found');
-        } elseif ($code === 4) {
-            throw new \Exception('Postback is missing data');
-        } elseif ($code === 5) {
-            throw new \Exception('Order not paid yet');
-        } elseif ($code === 6) {
-            throw new \Exception('Error reported by the Virtual Store');
-        } elseif ($code === 7) {
-            throw new \Exception('Value for "hash_key" parameter is incorrect');
-        } elseif ($code === 9) {
-            throw new \Exception('Wrong postback url. Please check the "Test Environment" section');
         }
-        throw new \Exception('Unknown return code "'.$code.'"');
+
+        throw new \Exception($this->getErrorCodeMessage($code));
+    }
+
+    protected function getErrorCodeMessage($code)
+    {
+        if (array_key_exists($code, $this->errorCodes)) {
+            return $this->errorCodes[$code];
+        }
+
+        return 'Unknown return code "'.$code.'"';
     }
 
     protected function getPostFields()

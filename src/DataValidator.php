@@ -5,7 +5,7 @@ class DataValidator
     public function nonEmptyString($string, $maxLength = null)
     {
         if (is_int($string) || is_float($string)) {
-            $string = (string)$string;
+            $string = (string) $string;
         }
 
         if (!is_string($string) || empty($string)) {
@@ -53,6 +53,38 @@ class DataValidator
 
         if (!is_null($maxLength)) {
             return $this->maxLength($url, $maxLength);
+        }
+
+        return true;
+    }
+
+    public function validUrl($url, $maxLength = null)
+    {
+        return $this->nonEmptyUrl($url, $maxLength) && in_array(parse_url($url, PHP_URL_PORT), array(null, 80, 443));
+    }
+
+    public function validLanguage($language)
+    {
+        if (!in_array($language, array('pt_BR', 'es_ES', 'en_US', 'pt_PT', 'tr_TR'))) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public function validCurrencyCode($currencyCode)
+    {
+        if (!in_array($currencyCode, array('ARS', 'BOB', 'BRL', 'CLP', 'COP', 'CRC', 'EUR', 'MXN', 'NIO', 'PEN', 'TRY', 'USD'))) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public function validStringBool($bool)
+    {
+        if (!in_array($bool, array('0', '1'))) {
+            return false;
         }
 
         return true;

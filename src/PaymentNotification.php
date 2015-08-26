@@ -31,10 +31,39 @@ class PaymentNotification
     {
         $this->payment = $payment;
 
+        $this->validateReturnedDatas($storeId, $orderId, $amount, $currencyCode, $paymentId);
+
+        if (!is_null($ipAddress)) {
+            $this->validateIpAddress($ipAddress);
+        }
+
         $this->transactionId = $transactionId;
         $this->currencyCode  = $currencyCode;
         $this->paymentId     = $paymentId;
+    }
 
+    public function getPayment()
+    {
+        return $this->payment;
+    }
+
+    public function getTransactionId()
+    {
+        return $this->transactionId;
+    }
+
+    public function getCurrencyCode()
+    {
+        return $this->currencyCode;
+    }
+
+    public function getPaymentId()
+    {
+        return $this->paymentId;
+    }
+
+    protected function validateReturnedDatas($storeId, $orderId, $amount, $currencyCode, $paymentId)
+    {
         if ($storeId != $this->payment->getVirtualStoreIdentification()->getStoreId()) {
             throw new \Exception('Store ID received differs from defined Store ID ('.$storeId.' != '.$this->payment->getVirtualStoreIdentification()->getStoreId().')');
         }
@@ -56,29 +85,12 @@ class PaymentNotification
         if (!is_null($definedPaymentID) && $paymentId != $definedPaymentID) {
             throw new \Exception('Payment ID received differs from defined Payment ID ('.$paymentId.' != '.$definedPaymentID.')');
         }
+    }
 
-        if (!is_null($ipAddress) && !in_array($ipAddress, $this->authorizedIps)) {
+    protected function validateIpAddress($ipAddress)
+    {
+        if (!in_array($ipAddress, $this->authorizedIps)) {
             throw new \Exception('Unauthorized IP Adress ('.$ipAddress.')');
         }
-    }
-
-    public function getPayment()
-    {
-        return $this->payment;
-    }
-
-    public function getTransactionId()
-    {
-        return $this->transactionId;
-    }
-
-    public function getCurrencyCode()
-    {
-        return $this->currencyCode;
-    }
-
-    public function getPaymentId()
-    {
-        return $this->paymentId;
     }
 }

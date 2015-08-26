@@ -7,6 +7,8 @@
  */
 class EndUser
 {
+    use PropertyValidateAffect;
+
     /* DataValidator object */
     protected $validator;
 
@@ -53,11 +55,7 @@ class EndUser
     {
         $this->validator = new DataValidator();
 
-        if (!$this->validator->nonEmptyEmail($email, 60)) {
-            throw new \Exception('Invalid email address provided (must be valid and max length of 60)');
-        }
-
-        $this->email = $email;
+        $this->affectProperty('email', $email, 'nonEmptyEmail', 60);
     }
 
     public function getEmail()
@@ -127,133 +125,61 @@ class EndUser
 
     public function setName($name)
     {
-        if (!$this->validator->nonEmptyString($name, 60)) {
-            throw new \Exception('Invalid name. Must be a non-empty string with max length of 60');
-        }
-
-        $this->name = $name;
-
-        return $this;
+        return $this->affectProperty('name', $name, 'nonEmptyString', 60);
     }
 
     public function setNumber($number)
     {
-        if (!$this->validator->nonEmptyString($number, 10)) {
-            throw new \Exception('Invalid number. Must be a non-empty string with max length of 10');
-        }
-
-        $this->number = $number;
-
-        return $this;
+        return $this->affectProperty('number', $number, 'nonEmptyString', 10);
     }
 
     public function setStreet($street)
     {
-        if (!$this->validator->nonEmptyString($street, 60)) {
-            throw new \Exception('Invalid street. Must be a non-empty string with max length of 60');
-        }
-
-        $this->street = $street;
-
-        return $this;
+        return $this->affectProperty('street', $street, 'nonEmptyString', 60);
     }
 
     public function setSubUrb($suburb)
     {
-        if (!$this->validator->nonEmptyString($suburb, 60)) {
-            throw new \Exception('Invalid suburb. Must be a non-empty string with max length of 60');
-        }
-
-        $this->suburb = $suburb;
-
-        return $this;
+        return $this->affectProperty('suburb', $suburb, 'nonEmptyString', 60);
     }
 
     public function setZipcode($zipcode)
     {
-        if (!$this->validator->nonEmptyInt($zipcode, 8)) {
-            throw new \Exception('Invalid zipcode. Must be a non-empty string with only numbers, with max length of 8');
-        }
-
-        $this->zipcode = $zipcode;
-
-        return $this;
+        return $this->affectProperty('zipcode', $zipcode, 'nonEmptyInt', 8);
     }
 
     public function setCity($city)
     {
-        if (!$this->validator->nonEmptyString($city, 60)) {
-            throw new \Exception('Invalid city. Must be a non-empty string with max length of 60');
-        }
-
-        $this->city = $city;
-
-        return $this;
+        return $this->affectProperty('city', $city, 'nonEmptyString', 20);
     }
 
     public function setState($state)
     {
-        if (!$this->validator->nonEmptyString($state, 20)) {
-            throw new \Exception('Invalid state. Must be a non-empty string with max length of 20');
-        }
-
-        $this->state = $state;
-
-        return $this;
+        return $this->affectProperty('state', $state, 'nonEmptyString', 20);
     }
 
     public function setCountry($country)
     {
-        if (!$this->validator->nonEmptyString($country, 20)) {
-            throw new \Exception('Invalid country. Must be a non-empty string with max length of 20');
-        }
-
-        $this->country = $country;
-
-        return $this;
+        return $this->affectProperty('country', $country, 'nonEmptyString', 20);
     }
 
     public function setPhone($phone)
     {
-        if (!$this->validator->nonEmptyString($phone, 20)) {
-            throw new \Exception('Invalid phone number. Must be a non-empty string with max length of 20');
-        }
-
-        $this->phone = $phone;
-
-        return $this;
+        return $this->affectProperty('phone', $phone, 'nonEmptyString', 20);
     }
 
     public function setCPF($cpf)
     {
-        if (!$this->validator->nonEmptyString($cpf, 20)) {
-            throw new \Exception('Invalid CPF. Must be a non-empty string with max length of 20');
-        }
-
-        $this->cpf = $cpf;
-
-        return $this;
+        return $this->affectProperty('cpf', $cpf, 'nonEmptyString', 20);
     }
 
     public function setLanguage($language)
     {
-        if (!in_array($language, array('pt_BR', 'es_ES', 'en_US', 'pt_PT', 'tr_TR'))) {
-            throw new \Exception('Invalid Language. Possible values are pt_BR, es_ES, en_US, pt_PT, tr_TR');
-        }
-
-        $this->language = $language;
-
-        return $this;
+        return $this->affectProperty('language', $language, 'validLanguage');
     }
 
     public function setCharacter($character)
     {
-        if (!$this->validator->nonEmptyString($character, 100)) {
-            throw new \Exception('Invalid Character or player login. Must be a non-empty string (max length of 100)');
-        }
-
-        $this->character = $character;
-
-        return $this;
+        return $this->affectProperty('character', $character, 'nonEmptyString', 100);
     }
 }

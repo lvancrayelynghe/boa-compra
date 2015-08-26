@@ -3,7 +3,7 @@
     "description": "Unofficial BoaCompra billing PHP library",
     "type": "library",
     "require": {
-        "php": ">=5.3.9",
+        "php": ">=5.4",
         "ext-mbstring": "*",
         "ext-curl": "*"
     },
