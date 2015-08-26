@@ -112,7 +112,7 @@ class PaymentFormGenerator
      */
     protected function callMethod($key)
     {
-        if (!is_string($key) or substr_count($key, ':') !== 1) {
+        if (!is_string($key) || substr_count($key, ':') !== 1) {
             throw new \Exception('Invalid method "'.$key.'"');
         }
 

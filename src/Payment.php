@@ -94,7 +94,7 @@ class Payment
             throw new \Exception('Order amount must be provided');
         }
 
-        if (!ctype_digit($amount) or mb_strlen((string) $amount) > 7) {
+        if (!ctype_digit($amount) || mb_strlen((string) $amount) > 7) {
             throw new \Exception('Order amount must be an integer (amount without commas or dots) with max length of 7');
         }
 
@@ -185,7 +185,7 @@ class Payment
 
     public function setCountryIso($countryIso)
     {
-        if (!is_string($countryIso) or empty($countryIso) or mb_strlen($countryIso) > 2) {
+        if (!is_string($countryIso) || empty($countryIso) || mb_strlen($countryIso) > 2) {
             throw new \Exception('Invalid country iso code. Must be a non-empty string with max length of 2');
         }
 
@@ -196,7 +196,7 @@ class Payment
 
     public function setProjectId($projectId)
     {
-        if (!is_string($projectId) or empty($projectId) or mb_strlen($projectId) > 6) {
+        if (!is_string($projectId) || empty($projectId) || mb_strlen($projectId) > 6) {
             throw new \Exception('Invalid project ID. Must be a non-empty string with max length of 6');
         }
 
@@ -207,7 +207,7 @@ class Payment
 
     public function setPaymentId($paymentId)
     {
-        if (!is_string($paymentId) or empty($paymentId) or mb_strlen($paymentId) > 6) {
+        if (!is_string($paymentId) || empty($paymentId) || mb_strlen($paymentId) > 6) {
             throw new \Exception('Invalid payment ID. Must be a non-empty string with max length of 6');
         }
 
@@ -218,7 +218,7 @@ class Payment
 
     public function setPaymentGroup($paymentGroup)
     {
-        if (!is_string($paymentGroup) or empty($paymentGroup) or mb_strlen($paymentGroup) > 20) {
+        if (!is_string($paymentGroup) || empty($paymentGroup) || mb_strlen($paymentGroup) > 20) {
             throw new \Exception('Invalid payment group. Must be a non-empty string with max length of 20');
         }
 
@@ -229,7 +229,7 @@ class Payment
 
     public function setToken($token)
     {
-        if (!is_string($token) or empty($token) or mb_strlen($token) > 32) {
+        if (!is_string($token) || empty($token) || mb_strlen($token) > 32) {
             throw new \Exception('Invalid external partner token. Must be a non-empty string with max length of 32');
         }
 
@@ -251,7 +251,7 @@ class Payment
 
     protected function validateUrl($url)
     {
-        if (filter_var($url, FILTER_VALIDATE_URL) === false or mb_substr($url, 0, 4) !== 'http' or mb_strlen($url) > 200) {
+        if (filter_var($url, FILTER_VALIDATE_URL) === false || mb_substr($url, 0, 4) !== 'http' || mb_strlen($url) > 200) {
             return false;
         }
 

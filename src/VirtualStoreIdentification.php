@@ -15,7 +15,7 @@ class VirtualStoreIdentification
 
     public function __construct($storeId, $key)
     {
-        if (!ctype_digit($storeId) or mb_strlen((string) $storeId) > 6) {
+        if (!ctype_digit($storeId) || mb_strlen((string) $storeId) > 6) {
             throw new \Exception('Store ID must be an integer with max length of 6');
         }
 

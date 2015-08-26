@@ -27,7 +27,7 @@ class PaymentPostBack
     public function validatePayment()
     {
         $code = $this->getReturnCode();
-        if ($code === 0 or $code === 1) {
+        if ($code === 0 || $code === 1) {
             // 0 - Order successfully confirmed.
             // 1 - Order already confirmed.
             return true;
@@ -112,7 +112,7 @@ class PaymentPostBack
             throw new \Exception('Empty response (HTTP response code : '.$infos['http_code'].')');
         }
 
-        if (strpos($response, 'CODRET=') === false or mb_strlen($response) < 8) {
+        if (strpos($response, 'CODRET=') === false || mb_strlen($response) < 8) {
             throw new \Exception('No return code provided (HTTP response code : '.$infos['http_code'].')');
         }
 
