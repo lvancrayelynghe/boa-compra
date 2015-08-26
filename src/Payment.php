@@ -189,7 +189,7 @@ class Payment
 
     public function setProjectId($projectId)
     {
-        if (!is_string($projectId) || empty($projectId) || mb_strlen($projectId) > 6) {
+        if (!$this->validator->nonEmptyString($projectId, 6)) {
             throw new \Exception('Invalid project ID. Must be a non-empty string with max length of 6');
         }
 
@@ -200,7 +200,7 @@ class Payment
 
     public function setPaymentId($paymentId)
     {
-        if (!is_string($paymentId) || empty($paymentId) || mb_strlen($paymentId) > 6) {
+        if (!$this->validator->nonEmptyString($paymentId, 6)) {
             throw new \Exception('Invalid payment ID. Must be a non-empty string with max length of 6');
         }
 
@@ -211,7 +211,7 @@ class Payment
 
     public function setPaymentGroup($paymentGroup)
     {
-        if (!is_string($paymentGroup) || empty($paymentGroup) || mb_strlen($paymentGroup) > 20) {
+        if (!$this->validator->nonEmptyString($paymentGroup, 20)) {
             throw new \Exception('Invalid payment group. Must be a non-empty string with max length of 20');
         }
 
@@ -222,7 +222,7 @@ class Payment
 
     public function setToken($token)
     {
-        if (!is_string($token) || empty($token) || mb_strlen($token) > 32) {
+        if (!$this->validator->nonEmptyString($token, 32)) {
             throw new \Exception('Invalid external partner token. Must be a non-empty string with max length of 32');
         }
 
@@ -233,7 +233,7 @@ class Payment
 
     public function setTestMode($testMode)
     {
-        if (!in_array($testMode, array(0, 1, '0', '1'))) {
+        if (!in_array($testMode, array('0', '1'))) {
             throw new \Exception('Invalid test mode. Valid values are 0 or 1');
         }
 
