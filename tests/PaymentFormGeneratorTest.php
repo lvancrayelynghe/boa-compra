@@ -17,7 +17,7 @@ class PaymentFormGeneratorTest extends PHPUnit_Framework_TestCase
 
         $endUser = new EndUser('me@example.com');
 
-        $others = new stdClass();
+        $others                    = new stdClass();
         $others->return            = 'http://localhost.dev/test.php';
         $others->notify_url        = 'http://localhost.dev/notify.php';
         $others->currency_code     = 'EUR';
@@ -107,7 +107,7 @@ class PaymentFormGeneratorTest extends PHPUnit_Framework_TestCase
 
         // Use reflection to make the method accessible
         $reflection = new \ReflectionClass(get_class($form));
-        $method = $reflection->getMethod('callMethod');
+        $method     = $reflection->getMethod('callMethod');
         $method->setAccessible(true);
         $method->invokeArgs($form, array('test'));
     }
@@ -120,7 +120,7 @@ class PaymentFormGeneratorTest extends PHPUnit_Framework_TestCase
 
         // Use reflection to make the method accessible
         $reflection = new \ReflectionClass(get_class($form));
-        $method = $reflection->getMethod('callMethod');
+        $method     = $reflection->getMethod('callMethod');
         $method->setAccessible(true);
         $method->invokeArgs($form, array('test:test'));
     }

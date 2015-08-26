@@ -22,7 +22,7 @@ class PaymentTest extends PHPUnit_Framework_TestCase
 
         $this->endUser = new EndUser('me@example.com');
 
-        $this->others = new stdClass();
+        $this->others                    = new stdClass();
         $this->others->return            = 'http://localhost.dev/test.php';
         $this->others->notify_url        = 'http://localhost.dev/notify.php';
         $this->others->currency_code     = 'EUR';

@@ -8,7 +8,7 @@ class EndUserTest extends PHPUnit_Framework_TestCase
 
     public function testGetters()
     {
-        $email = 'my-email@example.com';
+        $email   = 'my-email@example.com';
         $endUser = new EndUser($email);
 
         $this->assertEquals(null,   $endUser->getName());

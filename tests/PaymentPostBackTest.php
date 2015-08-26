@@ -49,7 +49,7 @@ class PaymentPostBackTest extends PHPUnit_Framework_TestCase
     {
         // Use reflection to make the method accessible
         $reflection = new \ReflectionClass(get_class($this->postback));
-        $method = $reflection->getMethod('getPostFields');
+        $method     = $reflection->getMethod('getPostFields');
         $method->setAccessible(true);
 
         $this->assertEquals($this->postfields, $method->invokeArgs($this->postback, array()));
@@ -59,7 +59,7 @@ class PaymentPostBackTest extends PHPUnit_Framework_TestCase
     {
         // Use reflection to make the method accessible
         $reflection = new \ReflectionClass(get_class($this->postback));
-        $method = $reflection->getMethod('getURL');
+        $method     = $reflection->getMethod('getURL');
         $method->setAccessible(true);
 
         $this->assertEquals(PaymentPostBack::POSTBACK_URL, $method->invokeArgs($this->postback, array()));
@@ -71,7 +71,7 @@ class PaymentPostBackTest extends PHPUnit_Framework_TestCase
 
         // Use reflection to make the method accessible
         $reflection = new \ReflectionClass(get_class($this->postback));
-        $method = $reflection->getMethod('getURL');
+        $method     = $reflection->getMethod('getURL');
         $method->setAccessible(true);
 
         $this->assertEquals(PaymentPostBack::POSTBACK_TEST_URL, $method->invokeArgs($this->postback, array()));

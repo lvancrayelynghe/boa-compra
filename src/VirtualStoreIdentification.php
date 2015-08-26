@@ -20,7 +20,7 @@ class VirtualStoreIdentification
         }
 
         $this->storeId = $storeId;
-        $this->key = $key;
+        $this->key     = $key;
     }
 
     public function getStoreId()

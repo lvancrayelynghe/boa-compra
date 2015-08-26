@@ -17,7 +17,7 @@ class PaymentNotificationTest extends PHPUnit_Framework_TestCase
 
         $endUser = new EndUser('me@example.com');
 
-        $this->others = new stdClass();
+        $this->others                 = new stdClass();
         $this->others->store_id       = '12';
         $this->others->transaction_id = 'QWERTY-0123456';
         $this->others->order_id       = '42';

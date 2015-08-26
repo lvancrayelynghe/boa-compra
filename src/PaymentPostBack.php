@@ -8,7 +8,7 @@
 class PaymentPostBack
 {
     /* BoaCompra Billing URL - must be sent through a POST method */
-    const POSTBACK_URL = 'https://billing.boacompra.com/boacompra.php';
+    const POSTBACK_URL      = 'https://billing.boacompra.com/boacompra.php';
     const POSTBACK_TEST_URL = 'https://billing.boacompra.com/boacompra_test.php';
 
     /* PaymentNotification received from BoaCompra */
