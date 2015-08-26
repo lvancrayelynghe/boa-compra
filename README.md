@@ -1,6 +1,7 @@
 # Unofficial BoaCompra billing PHP library
 
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
+[![Build Status](https://img.shields.io/travis/Benoth/boa-compra.svg?style=flat-square)](https://travis-ci.org/Benoth/boa-compra)
 [![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/Benoth/boa-compra.svg?style=flat-square)](https://scrutinizer-ci.com/g/Benoth/boa-compra/code-structure)
 [![Quality Score](https://img.shields.io/scrutinizer/g/Benoth/boa-compra.svg?style=flat-square)](https://scrutinizer-ci.com/g/Benoth/boa-compra)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/d6070e0b-2008-42b7-a2ed-e7189815fd91/mini.png)](https://insight.sensiolabs.com/projects/d6070e0b-2008-42b7-a2ed-e7189815fd91)
