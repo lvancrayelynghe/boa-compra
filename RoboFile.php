@@ -9,6 +9,7 @@ class RoboFile extends \Robo\Tasks
     {
         $this->phpAll();
         $this->testsAll();
+        $this->docGenerate();
     }
 
     /**
@@ -30,6 +31,14 @@ class RoboFile extends \Robo\Tasks
         $this->phpCpd();
         $this->phpCs();
         $this->phpLoc();
+    }
+
+    /**
+     * Run Sami doc generator
+     */
+    public function docGenerate()
+    {
+        $this->taskExec('sami update sami-config.inc.php')->dir(__DIR__)->run();
     }
 
     /**
