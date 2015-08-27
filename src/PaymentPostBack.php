@@ -111,7 +111,7 @@ class PaymentPostBack
         return array($response, $infos);
     }
 
-    protected function getReturnCode()
+    protected function getResponse()
     {
         list($response, $infos) = $this->curlRequest();
 
@@ -119,9 +119,16 @@ class PaymentPostBack
             throw new \Exception('Empty response (HTTP response code : '.$infos['http_code'].')');
         }
 
-        if (strpos($response, 'CODRET=') === false || mb_strlen($response) < 8) {
+        if (strpos($response, 'CODRET') === false || mb_strlen($response) < 8) {
             throw new \Exception('No return code provided (HTTP response code : '.$infos['http_code'].')');
         }
+
+        return array($response, $infos);
+    }
+
+    protected function getReturnCode()
+    {
+        list($response, $infos) = $this->getResponse();
 
         return (int) str_replace('CODRET=', '', trim($response));
     }

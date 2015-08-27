@@ -37,18 +37,10 @@ class PaymentCheckStatus extends PaymentPostBack
 
     protected function getReturnCode()
     {
-        list($response, $infos) = $this->curlRequest();
-
-        if (mb_strlen($response) === 0) {
-            throw new \Exception('Empty response (HTTP response code : '.$infos['http_code'].')');
-        }
-
-        if (strpos($response, 'CODRET') === false || mb_strlen($response) < 8) {
-            throw new \Exception('No return code provided (HTTP response code : '.$infos['http_code'].')');
-        }
+        list($response, $infos) = $this->getResponse();
 
         $response = json_decode($response);
-        if (!is_object($response) || !property_exists($response, 'CODRET') || mb_strlen((string)$response->CODRET) < 1) {
+        if (!is_object($response) || !property_exists($response, 'CODRET') || mb_strlen((string) $response->CODRET) < 1) {
             throw new \Exception('Invalid response format (not JSON ?) (HTTP response code : '.$infos['http_code'].')');
         }
 
