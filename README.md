@@ -13,7 +13,66 @@ please send a patch via pull request.
 [PSR-2]: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md
 [PSR-4]: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader.md
 
+## Usage
 
+### Create a payment
+
+``` php
+$vsi = new VirtualStoreIdentification($yourStoreId, $yourSecretKey);
+
+try {
+    $endUser = new EndUser('me@example.com');
+    $endUser->setName('John Doe')
+            // ...
+            ->setLanguage('en_US');
+
+    $payment = new Payment(
+        $vsi,
+        $endUser,
+        $yourReturnUrl,
+        $yourNotifyUrl,
+        $yourCurrencyIso,
+        $yourOrderId,
+        $orderDescription,
+        $amount // without dot or comma (ie: 500 for $5.00)
+    );
+    $payment->setTestMode(1)
+            ->setProjectId(1)
+            ->setPaymentId(1);
+} catch (\Exception $e) {
+	// Log or anything ...
+}
+
+$form = new PaymentFormGenerator($payment);
+
+// Then in your HTML code, just call :
+$form->render();
+```
+
+### Validate BoaCompra notification
+``` php
+try {
+    // $payment is your previously set Payment object
+	$notif = new PaymentNotification($payment, $_POST['store_id'], $_POST['transaction_id'], $_POST['order_id'], $_POST['amount'], $_POST['currency_code'], $_POST['payment_id'], $_SERVER['REMOTE_ADDR']);
+	$postback = new PaymentPostBack($notif);
+	$postback->validatePayment();
+	return 'Ok !';
+} catch (\Exception $e) {
+	return 'Error validating the payment : '.$e->getMessage();
+}
+```
+
+### Check the status of a payment
+``` php
+try {
+	$notif = new PaymentNotification($payment, $storeId, $transactionId, $orderId, $amount, $currencyCode, $paymentId);
+	$status = new PaymentCheckStatus($notif);
+	$status->validatePayment();
+	return 'Ok !';
+} catch (\Exception $e) {
+	return 'Error validating the payment : '.$e->getMessage();
+}
+```
 
 ## Testing
 
@@ -23,4 +82,4 @@ $ vendor/bin/phpunit
 
 ## License
 
-The MIT License (MIT). Please see [License File](https://github.com/Benoth/boa-compra/blob/master/LICENSE.md) for more information.
+The MIT License (MIT). Please see [License File](https://github.com/Benoth/boa-compra/blob/master/LICENSE) for more information.
