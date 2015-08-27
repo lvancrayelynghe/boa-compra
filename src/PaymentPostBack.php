@@ -128,7 +128,7 @@ class PaymentPostBack
 
     protected function getReturnCode()
     {
-        list($response, $infos) = $this->getResponse();
+        list($response,) = $this->getResponse();
 
         return (int) str_replace('CODRET=', '', trim($response));
     }
