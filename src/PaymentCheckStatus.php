@@ -3,7 +3,7 @@
 namespace Benoth\BoaCompra;
 
 /**
- * Send the postback to BoaCompra to confirm the order information.
+ * Send a check status to BoaCompra to get the order status.
  *
  * Based on documentation v2.48
  */
@@ -21,6 +21,9 @@ class PaymentCheckStatus extends PaymentPostBack
         9 => 'Wrong postback url. Please check the "Test Environment" section',
     );
 
+    /**
+     * {@inheritdoc}
+     */
     protected function getPostFields()
     {
         $fields = array(
@@ -37,6 +40,9 @@ class PaymentCheckStatus extends PaymentPostBack
         return $fields;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     protected function getReturnCode()
     {
         list($response, $infos) = $this->getResponse();
