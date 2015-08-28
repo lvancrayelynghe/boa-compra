@@ -13,6 +13,21 @@ please send a patch via pull request.
 [PSR-2]: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md
 [PSR-4]: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader.md
 
+## Requirements
+
+The following versions of PHP are supported:
+
+* PHP 5.4
+* PHP 5.5
+* PHP 5.6
+* HHVM
+
+The following extensions are also required:
+
+* curl
+* mbstring
+
+
 ## Usage
 
 ### Create a payment
