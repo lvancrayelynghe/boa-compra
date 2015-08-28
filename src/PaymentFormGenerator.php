@@ -10,6 +10,7 @@ class PaymentFormGenerator
     /* Payment object */
     protected $payment;
 
+    /* List of form keys with corresponding object and method for required values */
     protected $mappingsRequired = array(
         'store_id'          => 'vsi:getStoreId',
         'return'            => 'payment:getReturnURL',
@@ -21,6 +22,7 @@ class PaymentFormGenerator
         'client_email'      => 'user:getEmail',
     );
 
+    /* List of form keys with corresponding object and method for optionnal values */
     protected $mappingsOptionnal = array(
         'project_id'        => 'payment:getProjectId',
         'payment_id'        => 'payment:getPaymentId',
@@ -42,18 +44,50 @@ class PaymentFormGenerator
         'character'         => 'user:getCharacter',
     );
 
+    /**
+     * Create a new form generator
+     *
+     * @param Payment $payment
+     */
     public function __construct(Payment $payment)
     {
         $this->payment = $payment;
     }
 
     /**
-     * Render the Payment object as HTML form
+     * Render a full HTML form
      *
-     * @param  string $name Form name
-     * @return string HTML Payment form
+     * @param string $name Form name
+     *
+     * @return string HTML form
      */
     public function render($name = 'boacompra-billing')
+    {
+        return $this->renderFormOpen($name)
+            .$this->renderFormContent()
+            .$this->renderFormClose();
+    }
+
+    /**
+     * Render a HTML form open tag
+     *
+     * @param string $action Form action (URL)
+     * @param string $name   Form name
+     * @param string $method HTTP method
+     *
+     * @return string HTML form open tag
+     */
+    public function renderFormOpen($name = 'boacompra-billing')
+    {
+        return '<form method="POST" name="'.$name.'" action="'.$this->payment->getBillingURL().'">'.PHP_EOL;
+    }
+
+    /**
+     * Render the BoaCompra HTML form content (list of inputs hidden)
+     *
+     * @return string HTML inputs hidden
+     */
+    public function renderFormContent()
     {
         $content = '';
 
@@ -73,28 +107,25 @@ class PaymentFormGenerator
             }
         }
 
-        return $this->renderForm($this->payment->getBillingURL(), $content, $name);
+        return $content;
     }
 
     /**
-     * Render a HTML form
+     * Render a HTML form close tag
      *
-     * @param  string $action  Form action (URL)
-     * @param  string $content Form content
-     * @param  string $name    Form name
-     * @param  string $method  HTTP method
-     * @return string HTML form
+     * @return string HTML form close tag
      */
-    protected function renderForm($action, $content, $name = 'boacompra-billing', $method = 'POST')
+    public function renderFormClose()
     {
-        return '<form method="'.$method.'" name="'.$name.'" action="'.$action.'">'.PHP_EOL.$content.'</form>'.PHP_EOL;
+        return '</form>'.PHP_EOL;
     }
 
     /**
      * Render a HTML input hidden field
      *
-     * @param  string $name  Field name
-     * @param  string $value Field value
+     * @param string $name  Field name
+     * @param string $value Field value
+     *
      * @return string HTML input hidden field
      */
     protected function renderHiddenInput($name, $value)
@@ -107,8 +138,9 @@ class PaymentFormGenerator
      *
      * ie: payment:getOrderId will call $this->payment->getOrderId()
      *
-     * @param  string $key Method key
-     * @return mixed  Called method return
+     * @param string $key Method key
+     *
+     * @return mixed Called method return
      */
     protected function callMethod($key)
     {
