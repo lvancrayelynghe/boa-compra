@@ -73,7 +73,7 @@ class PaymentFormGenerator
     /**
      * Render a HTML form open tag.
      *
-     * @param string $name   Form name
+     * @param string $name Form name
      *
      * @return string HTML form open tag
      */
