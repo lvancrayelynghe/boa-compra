@@ -35,7 +35,7 @@ class DataValidator
     /**
      * Test if a string is non empty, with only numbers and shorter than a certain length.
      *
-     * @param string   $string    The string to test
+     * @param string   $int       The string to test
      * @param int|null $maxLength The string max length (or null to disable check)
      *
      * @return bool
@@ -56,7 +56,7 @@ class DataValidator
     /**
      * Test if an email is valid and shorter than a certain length.
      *
-     * @param string   $string    The string to test
+     * @param string   $email     The email to test
      * @param int|null $maxLength The string max length (or null to disable check)
      *
      * @return bool
@@ -77,7 +77,7 @@ class DataValidator
     /**
      * Test if an URL is valid and shorter than a certain length.
      *
-     * @param string   $string    The string to test
+     * @param string   $url       The URL to test
      * @param int|null $maxLength The string max length (or null to disable check)
      *
      * @return bool
@@ -98,7 +98,7 @@ class DataValidator
     /**
      * Test if an URL is valid, uses port 80 or 443 and shorter than a certain length.
      *
-     * @param string   $string    The string to test
+     * @param string   $url       The URL to test
      * @param int|null $maxLength The string max length (or null to disable check)
      *
      * @return bool
@@ -111,7 +111,7 @@ class DataValidator
     /**
      * Test if a Language code is valid.
      *
-     * @param string $string The string to test
+     * @param string $language
      *
      * @return bool
      */
@@ -127,7 +127,7 @@ class DataValidator
     /**
      * Test if a Currency code is valid.
      *
-     * @param string $string The string to test
+     * @param string $currencyCode
      *
      * @return bool
      */
@@ -143,7 +143,7 @@ class DataValidator
     /**
      * Test if a string represent a boolean.
      *
-     * @param string $string The string to test
+     * @param string $bool
      *
      * @return bool
      */
