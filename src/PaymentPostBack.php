@@ -3,7 +3,7 @@
 namespace Benoth\BoaCompra;
 
 /**
- * Send the postback to BoaCompra to confirm the order information.
+ * Send the postback to BoaCompra to confirm the order once the notification is received.
  *
  * Based on documentation v2.48
  */
@@ -27,16 +27,33 @@ class PaymentPostBack
         9 => 'Wrong postback url. Please check the "Test Environment" section',
     );
 
+    /**
+     * Create the PaymentPostBack.
+     *
+     * @param PaymentNotification $notification Previously received Notification
+     */
     public function __construct(PaymentNotification $notification)
     {
         $this->notification = $notification;
     }
 
+    /**
+     * Get the Notification object.
+     *
+     * @return PaymentNotification
+     */
     public function getPaymentNotification()
     {
         return $this->notification;
     }
 
+    /**
+     * Validate the payment.
+     *
+     * @throws Exception Reason of the error if the payment is not valid
+     *
+     * @return bool True on success
+     */
     public function validatePayment()
     {
         $code = $this->getReturnCode();
@@ -46,9 +63,16 @@ class PaymentPostBack
             return true;
         }
 
-        throw new \Exception($this->getErrorCodeMessage($code));
+        throw new \Exception($this->getErrorCodeMessage($code), (int) $code);
     }
 
+    /**
+     * Get the error code corresponding message.
+     *
+     * @param int $code
+     *
+     * @return string The error message
+     */
     protected function getErrorCodeMessage($code)
     {
         if (array_key_exists($code, $this->errorCodes)) {
@@ -58,6 +82,11 @@ class PaymentPostBack
         return 'Unknown return code "'.$code.'"';
     }
 
+    /**
+     * Get the POST fields to be sent to BoaCompra.
+     *
+     * @return array
+     */
     protected function getPostFields()
     {
         $fields = array(
@@ -76,6 +105,11 @@ class PaymentPostBack
         return $fields;
     }
 
+    /**
+     * Generate the BoaCompra MD5 security Hash Key.
+     *
+     * @return string
+     */
     protected function generateHashKey()
     {
         return md5(
@@ -88,6 +122,11 @@ class PaymentPostBack
         );
     }
 
+    /**
+     * Get the BoaCompra URL to be used for the post back.
+     *
+     * @return string
+     */
     protected function getURL()
     {
         if ($this->notification->getPayment()->getTestMode()) {
@@ -97,6 +136,11 @@ class PaymentPostBack
         return static::POSTBACK_URL;
     }
 
+    /**
+     * Run the CURL request to send the post back to BoaCompra.
+     *
+     * @return array Results of curl_exec() and curl_getinfo()
+     */
     protected function curlRequest()
     {
         $curl = curl_init();
@@ -113,6 +157,13 @@ class PaymentPostBack
         return array($response, $infos);
     }
 
+    /**
+     * Get the BoaCompra Response and chek if the return code is present.
+     *
+     * @throws Exception If no return code found
+     *
+     * @return array Results of curl_exec() and curl_getinfo()
+     */
     protected function getResponse()
     {
         list($response, $infos) = $this->curlRequest();
@@ -128,6 +179,11 @@ class PaymentPostBack
         return array($response, $infos);
     }
 
+    /**
+     * Get the BoaCompra Return code.
+     *
+     * @return int
+     */
     protected function getReturnCode()
     {
         list($response) = $this->getResponse();
