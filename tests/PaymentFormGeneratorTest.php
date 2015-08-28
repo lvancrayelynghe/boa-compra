@@ -1,9 +1,9 @@
 <?php
 
-use Benoth\BoaCompra\VirtualStoreIdentification;
 use Benoth\BoaCompra\EndUser;
 use Benoth\BoaCompra\Payment;
 use Benoth\BoaCompra\PaymentFormGenerator;
+use Benoth\BoaCompra\VirtualStoreIdentification;
 
 class PaymentFormGeneratorTest extends PHPUnit_Framework_TestCase
 {
@@ -76,7 +76,7 @@ class PaymentFormGeneratorTest extends PHPUnit_Framework_TestCase
     {
         $form = new PaymentFormGenerator($this->payment);
 
-        $this->assertEquals($this->forms['simple'], $form->render());
+        $this->assertSame($this->forms['simple'], $form->render());
     }
 
     public function testWithNames()
@@ -86,7 +86,7 @@ class PaymentFormGeneratorTest extends PHPUnit_Framework_TestCase
 
         $form = new PaymentFormGenerator($this->payment);
 
-        $this->assertEquals($this->forms['with_names'], $form->render());
+        $this->assertSame($this->forms['with_names'], $form->render());
     }
 
     public function tesTokenAndName()
@@ -96,7 +96,7 @@ class PaymentFormGeneratorTest extends PHPUnit_Framework_TestCase
 
         $form = new PaymentFormGenerator($this->payment);
 
-        $this->assertEquals($this->forms['with_project'], $form->render());
+        $this->assertSame($this->forms['with_project'], $form->render());
     }
 
     public function testCallMethodMissingColonException()

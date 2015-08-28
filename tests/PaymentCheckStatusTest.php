@@ -1,10 +1,10 @@
 <?php
 
-use Benoth\BoaCompra\VirtualStoreIdentification;
 use Benoth\BoaCompra\EndUser;
 use Benoth\BoaCompra\Payment;
-use Benoth\BoaCompra\PaymentNotification;
 use Benoth\BoaCompra\PaymentCheckStatus;
+use Benoth\BoaCompra\PaymentNotification;
+use Benoth\BoaCompra\VirtualStoreIdentification;
 
 class PaymentCheckStatusTest extends PHPUnit_Framework_TestCase
 {
@@ -50,7 +50,7 @@ class PaymentCheckStatusTest extends PHPUnit_Framework_TestCase
         $method     = $reflection->getMethod('getPostFields');
         $method->setAccessible(true);
 
-        $this->assertEquals($this->postfields, $method->invokeArgs($this->checkstatus, array()));
+        $this->assertSame($this->postfields, $method->invokeArgs($this->checkstatus, array()));
     }
 
     public function testResponseCodeEmptyException()
@@ -92,7 +92,7 @@ class PaymentCheckStatusTest extends PHPUnit_Framework_TestCase
              ->method('curlRequest')
              ->will($this->returnValue(array('{"CODRET": 0}', array('http_code' => 200))));
 
-        $this->assertEquals(true, $this->stub->validatePayment());
+        $this->assertSame(true, $this->stub->validatePayment());
     }
 
     public function testResponseCode1()
@@ -101,7 +101,7 @@ class PaymentCheckStatusTest extends PHPUnit_Framework_TestCase
              ->method('curlRequest')
              ->will($this->returnValue(array('{"CODRET": 1}', array('http_code' => 200))));
 
-        $this->assertEquals(true, $this->stub->validatePayment());
+        $this->assertSame(true, $this->stub->validatePayment());
     }
 
     public function testResponseCode2Exception()
@@ -112,7 +112,7 @@ class PaymentCheckStatusTest extends PHPUnit_Framework_TestCase
              ->method('curlRequest')
              ->will($this->returnValue(array('{"CODRET": 2}', array('http_code' => 200))));
 
-        $this->assertEquals(true, $this->stub->validatePayment());
+        $this->assertSame(true, $this->stub->validatePayment());
     }
 
     public function testResponseCode3Exception()
@@ -123,7 +123,7 @@ class PaymentCheckStatusTest extends PHPUnit_Framework_TestCase
              ->method('curlRequest')
              ->will($this->returnValue(array('{"CODRET": 3}', array('http_code' => 200))));
 
-        $this->assertEquals(true, $this->stub->validatePayment());
+        $this->assertSame(true, $this->stub->validatePayment());
     }
 
     public function testResponseCode4Exception()
@@ -134,7 +134,7 @@ class PaymentCheckStatusTest extends PHPUnit_Framework_TestCase
              ->method('curlRequest')
              ->will($this->returnValue(array('{"CODRET": 4}', array('http_code' => 200))));
 
-        $this->assertEquals(true, $this->stub->validatePayment());
+        $this->assertSame(true, $this->stub->validatePayment());
     }
 
     public function testResponseCode5Exception()
@@ -145,7 +145,7 @@ class PaymentCheckStatusTest extends PHPUnit_Framework_TestCase
              ->method('curlRequest')
              ->will($this->returnValue(array('{"CODRET": 5}', array('http_code' => 200))));
 
-        $this->assertEquals(true, $this->stub->validatePayment());
+        $this->assertSame(true, $this->stub->validatePayment());
     }
 
     public function testResponseCode6Exception()
@@ -156,7 +156,7 @@ class PaymentCheckStatusTest extends PHPUnit_Framework_TestCase
              ->method('curlRequest')
              ->will($this->returnValue(array('{"CODRET": 6}', array('http_code' => 200))));
 
-        $this->assertEquals(true, $this->stub->validatePayment());
+        $this->assertSame(true, $this->stub->validatePayment());
     }
 
     public function testResponseCode7Exception()
@@ -167,7 +167,7 @@ class PaymentCheckStatusTest extends PHPUnit_Framework_TestCase
              ->method('curlRequest')
              ->will($this->returnValue(array('{"CODRET": 7}', array('http_code' => 200))));
 
-        $this->assertEquals(true, $this->stub->validatePayment());
+        $this->assertSame(true, $this->stub->validatePayment());
     }
 
     public function testResponseCode8Exception()
@@ -178,7 +178,7 @@ class PaymentCheckStatusTest extends PHPUnit_Framework_TestCase
              ->method('curlRequest')
              ->will($this->returnValue(array('{"CODRET": 8}', array('http_code' => 200))));
 
-        $this->assertEquals(true, $this->stub->validatePayment());
+        $this->assertSame(true, $this->stub->validatePayment());
     }
 
     public function testResponseCode9Exception()
@@ -189,7 +189,7 @@ class PaymentCheckStatusTest extends PHPUnit_Framework_TestCase
              ->method('curlRequest')
              ->will($this->returnValue(array('{"CODRET": 9}', array('http_code' => 200))));
 
-        $this->assertEquals(true, $this->stub->validatePayment());
+        $this->assertSame(true, $this->stub->validatePayment());
     }
 
     public function testResponseCodeUnkownException()
@@ -200,6 +200,6 @@ class PaymentCheckStatusTest extends PHPUnit_Framework_TestCase
              ->method('curlRequest')
              ->will($this->returnValue(array('{"CODRET": 999}', array('http_code' => 200))));
 
-        $this->assertEquals(true, $this->stub->validatePayment());
+        $this->assertSame(true, $this->stub->validatePayment());
     }
 }

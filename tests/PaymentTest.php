@@ -1,8 +1,8 @@
 <?php
 
-use Benoth\BoaCompra\VirtualStoreIdentification;
 use Benoth\BoaCompra\EndUser;
 use Benoth\BoaCompra\Payment;
+use Benoth\BoaCompra\VirtualStoreIdentification;
 
 class PaymentTest extends PHPUnit_Framework_TestCase
 {
@@ -37,15 +37,15 @@ class PaymentTest extends PHPUnit_Framework_TestCase
     {
         $payment = new Payment($this->vsi, $this->endUser, $this->others->return, $this->others->notify_url, $this->others->currency_code, $this->others->order_id, $this->others->order_description, $this->others->amount);
 
-        $this->assertEquals($this->vsi,           $this->basicPayment->getVirtualStoreIdentification());
-        $this->assertEquals($this->endUser,       $this->basicPayment->getEndUser());
-        $this->assertEquals(Payment::BILLING_URL, $this->basicPayment->getBillingURL());
-        $this->assertEquals(null,                 $this->basicPayment->getCountryIso());
-        $this->assertEquals(null,                 $this->basicPayment->getProjectId());
-        $this->assertEquals(null,                 $this->basicPayment->getPaymentId());
-        $this->assertEquals(null,                 $this->basicPayment->getPaymentGroup());
-        $this->assertEquals(null,                 $this->basicPayment->getToken());
-        $this->assertEquals(null,                 $this->basicPayment->getTestMode());
+        $this->assertSame($this->vsi,           $this->basicPayment->getVirtualStoreIdentification());
+        $this->assertSame($this->endUser,       $this->basicPayment->getEndUser());
+        $this->assertSame(Payment::BILLING_URL, $this->basicPayment->getBillingURL());
+        $this->assertSame(null,                 $this->basicPayment->getCountryIso());
+        $this->assertSame(null,                 $this->basicPayment->getProjectId());
+        $this->assertSame(null,                 $this->basicPayment->getPaymentId());
+        $this->assertSame(null,                 $this->basicPayment->getPaymentGroup());
+        $this->assertSame(null,                 $this->basicPayment->getToken());
+        $this->assertSame(null,                 $this->basicPayment->getTestMode());
     }
 
     public function testSetters()
@@ -64,12 +64,12 @@ class PaymentTest extends PHPUnit_Framework_TestCase
         $this->assertInstanceOf('Benoth\BoaCompra\Payment', $this->basicPayment->setToken($token));
         $this->assertInstanceOf('Benoth\BoaCompra\Payment', $this->basicPayment->setTestMode($test_mode));
 
-        $this->assertEquals($country_iso,   $this->basicPayment->getCountryIso());
-        $this->assertEquals($project_id,    $this->basicPayment->getProjectId());
-        $this->assertEquals($payment_id,    $this->basicPayment->getPaymentId());
-        $this->assertEquals($payment_group, $this->basicPayment->getPaymentGroup());
-        $this->assertEquals($token,         $this->basicPayment->getToken());
-        $this->assertEquals($test_mode,     $this->basicPayment->getTestMode());
+        $this->assertSame($country_iso,   $this->basicPayment->getCountryIso());
+        $this->assertSame($project_id,    $this->basicPayment->getProjectId());
+        $this->assertSame($payment_id,    $this->basicPayment->getPaymentId());
+        $this->assertSame($payment_group, $this->basicPayment->getPaymentGroup());
+        $this->assertSame($token,         $this->basicPayment->getToken());
+        $this->assertSame($test_mode,     $this->basicPayment->getTestMode());
     }
 
     public function testCountryIsoException()

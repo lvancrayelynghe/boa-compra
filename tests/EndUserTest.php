@@ -11,19 +11,19 @@ class EndUserTest extends PHPUnit_Framework_TestCase
         $email   = 'my-email@example.com';
         $endUser = new EndUser($email);
 
-        $this->assertEquals(null,   $endUser->getName());
-        $this->assertEquals(null,   $endUser->getNumber());
-        $this->assertEquals(null,   $endUser->getStreet());
-        $this->assertEquals(null,   $endUser->getSubUrb());
-        $this->assertEquals(null,   $endUser->getZipcode());
-        $this->assertEquals(null,   $endUser->getCity());
-        $this->assertEquals(null,   $endUser->getState());
-        $this->assertEquals(null,   $endUser->getCountry());
-        $this->assertEquals(null,   $endUser->getPhone());
-        $this->assertEquals(null,   $endUser->getCPF());
-        $this->assertEquals(null,   $endUser->getLanguage());
-        $this->assertEquals(null,   $endUser->getCharacter());
-        $this->assertEquals($email, $endUser->getEmail());
+        $this->assertSame(null,   $endUser->getName());
+        $this->assertSame(null,   $endUser->getNumber());
+        $this->assertSame(null,   $endUser->getStreet());
+        $this->assertSame(null,   $endUser->getSubUrb());
+        $this->assertSame(null,   $endUser->getZipcode());
+        $this->assertSame(null,   $endUser->getCity());
+        $this->assertSame(null,   $endUser->getState());
+        $this->assertSame(null,   $endUser->getCountry());
+        $this->assertSame(null,   $endUser->getPhone());
+        $this->assertSame(null,   $endUser->getCPF());
+        $this->assertSame(null,   $endUser->getLanguage());
+        $this->assertSame(null,   $endUser->getCharacter());
+        $this->assertSame($email, $endUser->getEmail());
     }
 
     public function testSetters()
@@ -57,19 +57,19 @@ class EndUserTest extends PHPUnit_Framework_TestCase
         $this->assertInstanceOf('Benoth\BoaCompra\EndUser', $endUser->setLanguage($language));
         $this->assertInstanceOf('Benoth\BoaCompra\EndUser', $endUser->setCharacter($character));
 
-        $this->assertEquals($name,      $endUser->getName());
-        $this->assertEquals($number,    $endUser->getNumber());
-        $this->assertEquals($street,    $endUser->getStreet());
-        $this->assertEquals($suburb,    $endUser->getSubUrb());
-        $this->assertEquals($zipcode,   $endUser->getZipcode());
-        $this->assertEquals($city,      $endUser->getCity());
-        $this->assertEquals($state,     $endUser->getState());
-        $this->assertEquals($country,   $endUser->getCountry());
-        $this->assertEquals($phone,     $endUser->getPhone());
-        $this->assertEquals($cpf,       $endUser->getCPF());
-        $this->assertEquals($language,  $endUser->getLanguage());
-        $this->assertEquals($character, $endUser->getCharacter());
-        $this->assertEquals($email,     $endUser->getEmail());
+        $this->assertSame($name,      $endUser->getName());
+        $this->assertSame($number,    $endUser->getNumber());
+        $this->assertSame($street,    $endUser->getStreet());
+        $this->assertSame($suburb,    $endUser->getSubUrb());
+        $this->assertSame($zipcode,   $endUser->getZipcode());
+        $this->assertSame($city,      $endUser->getCity());
+        $this->assertSame($state,     $endUser->getState());
+        $this->assertSame($country,   $endUser->getCountry());
+        $this->assertSame($phone,     $endUser->getPhone());
+        $this->assertSame($cpf,       $endUser->getCPF());
+        $this->assertSame($language,  $endUser->getLanguage());
+        $this->assertSame($character, $endUser->getCharacter());
+        $this->assertSame($email,     $endUser->getEmail());
     }
 
     public function testEmailExceptionFormat()

@@ -10,8 +10,8 @@ class VirtualStoreIdentificationTest extends PHPUnit_Framework_TestCase
         $key      = 'azerty';
         $vsi      = new VirtualStoreIdentification($store_id, $key);
 
-        $this->assertEquals($store_id, $vsi->getStoreId());
-        $this->assertEquals($key, $vsi->getKey());
+        $this->assertSame($store_id, $vsi->getStoreId());
+        $this->assertSame($key, $vsi->getKey());
     }
 
     public function testStoreIdExceptionNumeric()

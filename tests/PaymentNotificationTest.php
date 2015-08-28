@@ -1,9 +1,9 @@
 <?php
 
-use Benoth\BoaCompra\VirtualStoreIdentification;
 use Benoth\BoaCompra\EndUser;
 use Benoth\BoaCompra\Payment;
 use Benoth\BoaCompra\PaymentNotification;
+use Benoth\BoaCompra\VirtualStoreIdentification;
 
 class PaymentNotificationTest extends PHPUnit_Framework_TestCase
 {
@@ -35,11 +35,11 @@ class PaymentNotificationTest extends PHPUnit_Framework_TestCase
         $notification = new PaymentNotification($this->payment, $this->others->store_id, $this->others->transaction_id, $this->others->order_id, $this->others->amount, $this->others->currency_code, $this->others->payment_id);
 
         $this->assertInstanceOf('Benoth\BoaCompra\Payment', $notification->getPayment());
-        $this->assertEquals($this->payment, $notification->getPayment());
+        $this->assertSame($this->payment, $notification->getPayment());
 
-        $this->assertEquals($this->others->transaction_id, $notification->getTransactionId());
-        $this->assertEquals($this->others->currency_code,  $notification->getCurrencyCode());
-        $this->assertEquals($this->others->payment_id,     $notification->getPaymentId());
+        $this->assertSame($this->others->transaction_id, $notification->getTransactionId());
+        $this->assertSame($this->others->currency_code,  $notification->getCurrencyCode());
+        $this->assertSame($this->others->payment_id,     $notification->getPaymentId());
     }
 
     public function testSimple()
