@@ -3,7 +3,7 @@
 class RoboFile extends \Robo\Tasks
 {
     /**
-     * Run all the commands
+     * Run all the commands.
      */
     public function all()
     {
@@ -13,7 +13,7 @@ class RoboFile extends \Robo\Tasks
     }
 
     /**
-     * Run all the fixers
+     * Run all the fixers.
      */
     public function testsAll()
     {
@@ -22,7 +22,7 @@ class RoboFile extends \Robo\Tasks
     }
 
     /**
-     * Run all the fixers
+     * Run all the fixers.
      */
     public function phpAll()
     {
@@ -34,7 +34,7 @@ class RoboFile extends \Robo\Tasks
     }
 
     /**
-     * Run Sami doc generator
+     * Run Sami doc generator.
      */
     public function docGenerate()
     {
@@ -42,7 +42,7 @@ class RoboFile extends \Robo\Tasks
     }
 
     /**
-     * Run PhpUnit tests
+     * Run PhpUnit tests.
      */
     public function testsPhpunit()
     {
@@ -50,12 +50,13 @@ class RoboFile extends \Robo\Tasks
     }
 
     /**
-     * Send coverage to Scrutinizer
+     * Send coverage to Scrutinizer.
      */
     public function testsScrutinizer()
     {
         if (!file_exists(__DIR__.'/build/logs/clover.xml')) {
             $this->say('build/logs/clover.xml file not found. Run PhpUnit first.');
+
             return 1;
         }
 
@@ -63,20 +64,15 @@ class RoboFile extends \Robo\Tasks
     }
 
     /**
-     * Run PHP-CS-Fixer on "src" and "tests" directories
+     * Run PHP-CS-Fixer on "src" and "tests" directories.
      */
     public function phpCsfixer()
     {
-        $this->taskExecStack()->dir(__DIR__)
-            ->exec('php-cs-fixer fix src --level=symfony')
-            ->exec('php-cs-fixer fix src --fixers=align_equals,multiline_spaces_before_semicolon,no_blank_lines_before_namespace')
-            ->exec('php-cs-fixer fix tests --level=symfony')
-            ->exec('php-cs-fixer fix tests --fixers=align_equals,multiline_spaces_before_semicolon,no_blank_lines_before_namespace')
-        ->run();
+        $this->taskExec('php-cs-fixer fix')->dir(__DIR__)->run();
     }
 
     /**
-     * Run PHP Mess Detector on "src" directory
+     * Run PHP Mess Detector on "src" directory.
      */
     public function phpMd()
     {
@@ -84,7 +80,7 @@ class RoboFile extends \Robo\Tasks
     }
 
     /**
-     * Run PHP Copy Paste Detector on "src" directory
+     * Run PHP Copy Paste Detector on "src" directory.
      */
     public function phpCpd()
     {
@@ -92,7 +88,7 @@ class RoboFile extends \Robo\Tasks
     }
 
     /**
-     * Run PHP_CodeSniffer on "src" directory
+     * Run PHP_CodeSniffer on "src" directory.
      */
     public function phpCs()
     {
@@ -103,11 +99,10 @@ class RoboFile extends \Robo\Tasks
     }
 
     /**
-     * Run PHPLOC on "src" directory (measuring the size and analyzing the structure of a PHP project)
+     * Run PHPLOC on "src" directory (measuring the size and analyzing the structure of a PHP project).
      */
     public function phpLoc()
     {
         $this->taskExec('phploc src')->dir(__DIR__)->run();
     }
-
 }
