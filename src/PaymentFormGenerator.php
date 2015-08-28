@@ -73,9 +73,7 @@ class PaymentFormGenerator
     /**
      * Render a HTML form open tag.
      *
-     * @param string $action Form action (URL)
      * @param string $name   Form name
-     * @param string $method HTTP method
      *
      * @return string HTML form open tag
      */
