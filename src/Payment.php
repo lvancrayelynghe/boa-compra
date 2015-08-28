@@ -1,7 +1,9 @@
-<?php namespace Benoth\BoaCompra;
+<?php
+
+namespace Benoth\BoaCompra;
 
 /**
- * Generate the payment to sends a payment request to BoaCompra
+ * Generate the payment to sends a payment request to BoaCompra.
  *
  * Based on documentation v2.48
  */
@@ -59,7 +61,7 @@ class Payment
     protected $testMode;
 
     /**
-     * Create a new Payment
+     * Create a new Payment.
      *
      * @param VirtualStoreIdentification $ident            VirtualStoreIdentification object
      * @param EndUser                    $endUser          EndUser object
@@ -87,7 +89,7 @@ class Payment
     }
 
     /**
-     * Get the BoaCompra Billing URL
+     * Get the BoaCompra Billing URL.
      *
      * @return string
      */
@@ -97,7 +99,7 @@ class Payment
     }
 
     /**
-     * Get the Virtual Store Identification
+     * Get the Virtual Store Identification.
      *
      * @return VirtualStoreIdentification
      */
@@ -107,7 +109,7 @@ class Payment
     }
 
     /**
-     * Get the End User
+     * Get the End User.
      *
      * @return EndUser
      */
@@ -117,7 +119,7 @@ class Payment
     }
 
     /**
-     * Get the Virtual Store URL used to redirect end users in successful transactions
+     * Get the Virtual Store URL used to redirect end users in successful transactions.
      *
      * @return string
      */
@@ -127,7 +129,7 @@ class Payment
     }
 
     /**
-     * Get the Virtual Store URL used by BoaCompra to notify a new payment
+     * Get the Virtual Store URL used by BoaCompra to notify a new payment.
      *
      * @return string
      */
@@ -137,7 +139,7 @@ class Payment
     }
 
     /**
-     * Get the Currency code
+     * Get the Currency code.
      *
      * @return string
      */
@@ -147,7 +149,7 @@ class Payment
     }
 
     /**
-     * Get the Order Id
+     * Get the Order Id.
      *
      * @return string
      */
@@ -157,7 +159,7 @@ class Payment
     }
 
     /**
-     * Get the Order description
+     * Get the Order description.
      *
      * @return string
      */
@@ -167,7 +169,7 @@ class Payment
     }
 
     /**
-     * Get the Amount
+     * Get the Amount.
      *
      * @return string
      */
@@ -177,7 +179,7 @@ class Payment
     }
 
     /**
-     * Get the Country ISO
+     * Get the Country ISO.
      *
      * @return string
      */
@@ -187,7 +189,7 @@ class Payment
     }
 
     /**
-     * Get the Project ID
+     * Get the Project ID.
      *
      * @return string
      */
@@ -197,7 +199,7 @@ class Payment
     }
 
     /**
-     * Get the Payment ID (payment method)
+     * Get the Payment ID (payment method).
      *
      * @return string
      */
@@ -207,7 +209,7 @@ class Payment
     }
 
     /**
-     * Get the Payment Group (used to show a specific group of payment methods to the End User)
+     * Get the Payment Group (used to show a specific group of payment methods to the End User).
      *
      * @return string
      */
@@ -217,7 +219,7 @@ class Payment
     }
 
     /**
-     * Get the Access token provided by external partner for authentication
+     * Get the Access token provided by external partner for authentication.
      *
      * @return string
      */
@@ -227,7 +229,7 @@ class Payment
     }
 
     /**
-     * Get the Test mode (0 = Prod, 1 = Test)
+     * Get the Test mode (0 = Prod, 1 = Test).
      *
      * @return string
      */
@@ -238,7 +240,7 @@ class Payment
 
     /**
      * Set the ISO Code of the country from which the payment methods must be displayed without
-     * showing the country selection page to the End User (max length 2)
+     * showing the country selection page to the End User (max length 2).
      *
      * @param string $countryIso
      *
@@ -252,7 +254,7 @@ class Payment
     }
 
     /**
-     * Set the Project Identifier (max length 6)
+     * Set the Project Identifier (max length 6).
      *
      * @param string $projectId
      *
@@ -267,7 +269,7 @@ class Payment
 
     /**
      * Set the Payment Identifier (max length 6)
-     * This parameter is used to show a specific payment method to the final user
+     * This parameter is used to show a specific payment method to the final user.
      *
      * @param string $paymentId
      *
@@ -282,7 +284,7 @@ class Payment
 
     /**
      * Set the Payment group name (max length 20)
-     * This parameter is used to show a specific group of payment methods to the End User
+     * This parameter is used to show a specific group of payment methods to the End User.
      *
      * @param string $paymentGroup
      *
@@ -297,7 +299,7 @@ class Payment
 
     /**
      * Set the Access token provided by external partner for authentication (max length 32)
-     * Please contact your Account Manager for further information
+     * Please contact your Account Manager for further information.
      *
      * @param string $token
      *
@@ -312,7 +314,7 @@ class Payment
 
     /**
      * Parameter used to indicate that a transaction will be processed in test mode (valid values : 0 / 1)
-     * Can be used the value "1" to test integration and "0" to production environment
+     * Can be used the value "1" to test integration and "0" to production environment.
      *
      * @param string $testMode
      *

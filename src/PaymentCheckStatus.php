@@ -1,7 +1,9 @@
-<?php namespace Benoth\BoaCompra;
+<?php
+
+namespace Benoth\BoaCompra;
 
 /**
- * Send the postback to BoaCompra to confirm the order information
+ * Send the postback to BoaCompra to confirm the order information.
  *
  * Based on documentation v2.48
  */

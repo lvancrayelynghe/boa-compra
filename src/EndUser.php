@@ -1,7 +1,9 @@
-<?php namespace Benoth\BoaCompra;
+<?php
+
+namespace Benoth\BoaCompra;
 
 /**
- * BoaCompra End User
+ * BoaCompra End User.
  *
  * Based on documentation v2.48
  */
@@ -49,7 +51,7 @@ class EndUser
     protected $character;
 
     /**
-     * Create a new End User
+     * Create a new End User.
      *
      * @param string $email End User email address
      *
@@ -63,7 +65,7 @@ class EndUser
     }
 
     /**
-     * Get the End User Email
+     * Get the End User Email.
      *
      * @return string
      */
@@ -73,7 +75,7 @@ class EndUser
     }
 
     /**
-     * Get the End User Full name
+     * Get the End User Full name.
      *
      * @return string
      */
@@ -83,7 +85,7 @@ class EndUser
     }
 
     /**
-     * Get the End User Address number
+     * Get the End User Address number.
      *
      * @return string
      */
@@ -93,7 +95,7 @@ class EndUser
     }
 
     /**
-     * Get the End User Address / Street
+     * Get the End User Address / Street.
      *
      * @return string
      */
@@ -103,7 +105,7 @@ class EndUser
     }
 
     /**
-     * Get the End User SubUrb
+     * Get the End User SubUrb.
      *
      * @return string
      */
@@ -113,7 +115,7 @@ class EndUser
     }
 
     /**
-     * Get the End User Postal code
+     * Get the End User Postal code.
      *
      * @return string
      */
@@ -123,7 +125,7 @@ class EndUser
     }
 
     /**
-     * Get the End User City
+     * Get the End User City.
      *
      * @return string
      */
@@ -133,7 +135,7 @@ class EndUser
     }
 
     /**
-     * Get the End User State
+     * Get the End User State.
      *
      * @return string
      */
@@ -143,7 +145,7 @@ class EndUser
     }
 
     /**
-     * Get the End User Country
+     * Get the End User Country.
      *
      * @return string
      */
@@ -153,7 +155,7 @@ class EndUser
     }
 
     /**
-     * Get the End User Phone
+     * Get the End User Phone.
      *
      * @return string
      */
@@ -163,7 +165,7 @@ class EndUser
     }
 
     /**
-     * Get the End User CPF
+     * Get the End User CPF.
      *
      * @return string
      */
@@ -173,7 +175,7 @@ class EndUser
     }
 
     /**
-     * Get the End User Language
+     * Get the End User Language.
      *
      * @return string
      */
@@ -183,7 +185,7 @@ class EndUser
     }
 
     /**
-     * Get the End User Character name or Player login
+     * Get the End User Character name or Player login.
      *
      * @return string
      */
@@ -194,7 +196,7 @@ class EndUser
 
     /**
      * Set the End User Full name (max length 60)
-     * Provides anti-fraud analysis and semi-transparent checkout
+     * Provides anti-fraud analysis and semi-transparent checkout.
      *
      * @param string $name
      *
@@ -208,7 +210,7 @@ class EndUser
     }
 
     /**
-     * Set the End User Address number (max length 10)
+     * Set the End User Address number (max length 10).
      *
      * @param string $number
      *
@@ -222,7 +224,7 @@ class EndUser
     }
 
     /**
-     * Set the End User Address / Street (max length 60)
+     * Set the End User Address / Street (max length 60).
      *
      * @param string $street
      *
@@ -236,7 +238,7 @@ class EndUser
     }
 
     /**
-     * Set the End User Suburb (max length 60)
+     * Set the End User Suburb (max length 60).
      *
      * @param string $suburb
      *
@@ -250,7 +252,7 @@ class EndUser
     }
 
     /**
-     * Set the End Postal code (numbers only) (max length 8)
+     * Set the End Postal code (numbers only) (max length 8).
      *
      * @param string $zipcode
      *
@@ -265,7 +267,7 @@ class EndUser
 
     /**
      * Set the End User City (max length 20)
-     * Provides anti-fraud analysis and semi-transparent checkout
+     * Provides anti-fraud analysis and semi-transparent checkout.
      *
      * @param string $city
      *
@@ -280,7 +282,7 @@ class EndUser
 
     /**
      * Set the End User State (max length 20)
-     * Provides anti-fraud analysis and semi-transparent checkout
+     * Provides anti-fraud analysis and semi-transparent checkout.
      *
      * @param string $state
      *
@@ -295,7 +297,7 @@ class EndUser
 
     /**
      * Set the End User Country (max length 20)
-     * Provides anti-fraud analysis and semi-transparent checkout
+     * Provides anti-fraud analysis and semi-transparent checkout.
      *
      * @param string $country
      *
@@ -310,7 +312,7 @@ class EndUser
 
     /**
      * Set the End User Phone Number (max length 20)
-     * Provides anti-fraud analysis and semi-transparent checkout
+     * Provides anti-fraud analysis and semi-transparent checkout.
      *
      * @param string $phone
      *
@@ -325,7 +327,7 @@ class EndUser
 
     /**
      * Set the End User CPF (for Brazil only) (max length 20)
-     * Provides anti-fraud analysis and semi-transparent checkout
+     * Provides anti-fraud analysis and semi-transparent checkout.
      *
      * @param string $cpf
      *
@@ -340,7 +342,7 @@ class EndUser
 
     /**
      * Set the End User Language (max length 5)
-     * Valid values : pt_BR, es_ES, en_US, pt_PT, tr_TR
+     * Valid values : pt_BR, es_ES, en_US, pt_PT, tr_TR.
      *
      * @param string $language
      *
@@ -355,7 +357,7 @@ class EndUser
 
     /**
      * Set the End User Character name or Player login (max length 100)
-     * Provides anti-fraud analysis and semi-transparent checkout
+     * Provides anti-fraud analysis and semi-transparent checkout.
      *
      * @param string $character
      *

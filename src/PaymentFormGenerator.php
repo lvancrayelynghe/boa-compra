@@ -1,7 +1,9 @@
-<?php namespace Benoth\BoaCompra;
+<?php
+
+namespace Benoth\BoaCompra;
 
 /**
- * Generate the payment form to sends a payment request to BoaCompra
+ * Generate the payment form to sends a payment request to BoaCompra.
  *
  * Based on documentation v2.48
  */
@@ -45,7 +47,7 @@ class PaymentFormGenerator
     );
 
     /**
-     * Create a new form generator
+     * Create a new form generator.
      *
      * @param Payment $payment
      */
@@ -55,7 +57,7 @@ class PaymentFormGenerator
     }
 
     /**
-     * Render a full HTML form
+     * Render a full HTML form.
      *
      * @param string $name Form name
      *
@@ -69,7 +71,7 @@ class PaymentFormGenerator
     }
 
     /**
-     * Render a HTML form open tag
+     * Render a HTML form open tag.
      *
      * @param string $action Form action (URL)
      * @param string $name   Form name
@@ -83,7 +85,7 @@ class PaymentFormGenerator
     }
 
     /**
-     * Render the BoaCompra HTML form content (list of inputs hidden)
+     * Render the BoaCompra HTML form content (list of inputs hidden).
      *
      * @return string HTML inputs hidden
      */
@@ -111,7 +113,7 @@ class PaymentFormGenerator
     }
 
     /**
-     * Render a HTML form close tag
+     * Render a HTML form close tag.
      *
      * @return string HTML form close tag
      */
@@ -121,7 +123,7 @@ class PaymentFormGenerator
     }
 
     /**
-     * Render a HTML input hidden field
+     * Render a HTML input hidden field.
      *
      * @param string $name  Field name
      * @param string $value Field value
@@ -134,7 +136,7 @@ class PaymentFormGenerator
     }
 
     /**
-     * Call a method on an object by a special key
+     * Call a method on an object by a special key.
      *
      * ie: payment:getOrderId will call $this->payment->getOrderId()
      *
@@ -161,7 +163,7 @@ class PaymentFormGenerator
     }
 
     /**
-     * Generate the MD5 between important parameters of the form and a Key defined by Virtual Store
+     * Generate the MD5 between important parameters of the form and a Key defined by Virtual Store.
      *
      * @return string The MD5 key
      */

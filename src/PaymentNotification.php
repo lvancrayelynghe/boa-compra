@@ -1,7 +1,9 @@
-<?php namespace Benoth\BoaCompra;
+<?php
+
+namespace Benoth\BoaCompra;
 
 /**
- * Process the notification received from BoaCompra, informing that the payment has cleared
+ * Process the notification received from BoaCompra, informing that the payment has cleared.
  *
  * Based on documentation v2.48
  */

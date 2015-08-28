@@ -1,7 +1,9 @@
-<?php namespace Benoth\BoaCompra;
+<?php
+
+namespace Benoth\BoaCompra;
 
 /**
- * BoaCompra Virtual Store Identification
+ * BoaCompra Virtual Store Identification.
  *
  * Based on documentation v2.48
  */
@@ -14,7 +16,7 @@ class VirtualStoreIdentification
     protected $key;
 
     /**
-     * Create a new Virtual Store Identification
+     * Create a new Virtual Store Identification.
      *
      * @param string $storeId Virtual Store ID
      * @param string $key     Virtual Store Secret Key
@@ -32,7 +34,7 @@ class VirtualStoreIdentification
     }
 
     /**
-     * Get the Store ID
+     * Get the Store ID.
      *
      * @return string
      */
@@ -42,7 +44,7 @@ class VirtualStoreIdentification
     }
 
     /**
-     * Get the Store Secret Key
+     * Get the Store Secret Key.
      *
      * @return string
      */

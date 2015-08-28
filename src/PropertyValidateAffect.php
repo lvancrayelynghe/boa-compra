@@ -1,4 +1,6 @@
-<?php namespace Benoth\BoaCompra;
+<?php
+
+namespace Benoth\BoaCompra;
 
 trait PropertyValidateAffect
 {
@@ -7,13 +9,14 @@ trait PropertyValidateAffect
 
     /**
      * Affect a property if a certain validation rule succeed.
-     * Throws an Exception otherwise
+     * Throws an Exception otherwise.
      *
-     * @param  string $property         Property name
-     * @param  mixed  $value            Value to affect
-     * @param  string $validationMethod Rule
-     * @param  mixed  $maxLength        Max length for strings
-     * @return mixed  Current object
+     * @param string $property         Property name
+     * @param mixed  $value            Value to affect
+     * @param string $validationMethod Rule
+     * @param mixed  $maxLength        Max length for strings
+     *
+     * @return mixed Current object
      */
     protected function affectProperty($property, $value, $validationMethod, $maxLength = null)
     {

@@ -1,4 +1,6 @@
-<?php namespace Benoth\BoaCompra;
+<?php
+
+namespace Benoth\BoaCompra;
 
 class DataValidator
 {
