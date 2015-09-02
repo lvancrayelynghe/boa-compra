@@ -1,0 +1,7 @@
+languages:
+    PHP: true
+
+exclude_paths:
+    - tests/*
+    - RoboFile.php
+    - sami-config.inc.php
