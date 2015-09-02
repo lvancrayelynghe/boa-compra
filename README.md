@@ -89,6 +89,11 @@ try {
 }
 ```
 
+## API
+
+The API documentation is available on [Github Pages](http://benoth.github.io/boa-compra/api/Benoth/BoaCompra.html)
+
+
 ## Testing
 
 ``` bash
