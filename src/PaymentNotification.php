@@ -112,6 +112,8 @@ class PaymentNotification
      * @throws Exception If the provided $amount is different from the one defined in Payment
      * @throws Exception If the provided $currencyCode is different from the one defined in Payment (if initially chosen)
      * @throws Exception If the provided $paymentId is different from the one defined in Payment (if initially chosen)
+     *
+     * @return  void
      */
     protected function validateReturnedDatas($storeId, $orderId, $amount, $currencyCode, $paymentId)
     {
