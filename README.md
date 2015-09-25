@@ -68,7 +68,16 @@ $form->render();
 ``` php
 try {
     // $payment is your previously set Payment object
-	$notif = new PaymentNotification($payment, $_POST['store_id'], $_POST['transaction_id'], $_POST['order_id'], $_POST['amount'], $_POST['currency_code'], $_POST['payment_id'], $_SERVER['REMOTE_ADDR']);
+	$notif = new PaymentNotification(
+	    $payment,
+	    $_POST['store_id'],
+	    $_POST['transaction_id'],
+	    $_POST['order_id'],
+	    $_POST['amount'],
+	    $_POST['currency_code'],
+	    $_POST['payment_id'],
+	    $_SERVER['REMOTE_ADDR']
+	);
 	$postback = new PaymentPostBack($notif);
 	$postback->validatePayment();
 	return 'Ok !';
@@ -80,7 +89,15 @@ try {
 ### Check the status of a payment
 ``` php
 try {
-	$notif = new PaymentNotification($payment, $storeId, $transactionId, $orderId, $amount, $currencyCode, $paymentId);
+	$notif = new PaymentNotification(
+	    $payment,
+	    $storeId,
+	    $transactionId,
+	    $orderId,
+	    $amount,
+	    $currencyCode,
+	    $paymentId
+	);
 	$status = new PaymentCheckStatus($notif);
 	$status->validatePayment();
 	return 'Ok !';
