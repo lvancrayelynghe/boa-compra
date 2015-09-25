@@ -9,19 +9,23 @@ namespace Benoth\BoaCompra;
  */
 class PaymentNotification
 {
-    /* Payment object */
+    /**
+     * Payment object.
+     *
+     * @type \Benoth\BoaCompra\Payment
+     */
     protected $payment;
 
-    /* Order Identification on UOL BoaCompra */
+    /** Order Identification on UOL BoaCompra **/
     protected $transactionId;
 
-    /* Order currency ISO code */
+    /** Order currency ISO code **/
     protected $currencyCode;
 
-    /* Identification of the payment method used by the final user */
+    /** Identification of the payment method used by the final user **/
     protected $paymentId;
 
-    /* List of BoaCompra IPs */
+    /** List of BoaCompra IPs **/
     protected $authorizedIps = array(
         '200.147.106.24',
         '200.147.106.25',
@@ -112,8 +116,6 @@ class PaymentNotification
      * @throws Exception If the provided $amount is different from the one defined in Payment
      * @throws Exception If the provided $currencyCode is different from the one defined in Payment (if initially chosen)
      * @throws Exception If the provided $paymentId is different from the one defined in Payment (if initially chosen)
-     *
-     * @return  void
      */
     protected function validateReturnedDatas($storeId, $orderId, $amount, $currencyCode, $paymentId)
     {

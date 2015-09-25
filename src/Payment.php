@@ -11,53 +11,61 @@ class Payment
 {
     use PropertyValidateAffect;
 
-    /* BoaCompra Billing URL - must be sent through a POST method */
+    /** BoaCompra Billing URL - must be sent through a POST method **/
     const BILLING_URL = 'https://billing.boacompra.com/payment.php';
 
-    /* VirtualStoreIdentification object */
+    /**
+     * VirtualStoreIdentification object.
+     *
+     * @type \Benoth\BoaCompra\VirtualStoreIdentification
+     */
     protected $ident;
 
-    /* EndUser object */
+    /**
+     * EndUser object.
+     *
+     * @type \Benoth\BoaCompra\EndUser
+     */
     protected $endUser;
 
-    /* URL used to redirect end users in successful transactions. (max length 200) (REQUIRED) */
+    /** URL used to redirect end users in successful transactions. (max length 200) (REQUIRED) **/
     protected $returnUrl;
 
-    /* URL used to notify the Virtual Store (This URL must bind ports 80 or 443) (max length 200) (REQUIRED) */
+    /** URL used to notify the Virtual Store (This URL must bind ports 80 or 443) (max length 200) (REQUIRED) **/
     protected $notifyUrl;
 
-    /* Order currency ISO code (Possible values ARS,BOB,BRL,CLP,COP,CRC,EUR,MXN,NIO,PEN,TRY,USD) (REQUIRED) */
+    /** Order currency ISO code (Possible values ARS,BOB,BRL,CLP,COP,CRC,EUR,MXN,NIO,PEN,TRY,USD) (REQUIRED) **/
     protected $currencyCode;
 
-    /* Order Identification on Virtual Store (This must be an unique value) (max length 30) (REQUIRED) */
+    /** Order Identification on Virtual Store (This must be an unique value) (max length 30) (REQUIRED) **/
     protected $orderId;
 
-    /* Small description of the order (max length 200) (REQUIRED) */
+    /** Small description of the order (max length 200) (REQUIRED) **/
     protected $orderDescription;
 
-    /* Order's total amount (without commas or dots) (max length 7) (REQUIRED) */
+    /** Order's total amount (without commas or dots) (max length 7) (REQUIRED) **/
     protected $amount;
 
-    /* ISO Code of the country from which the payment methods must be displayed without
-    showing the country selection page to the End User (max length 2) */
+    /** ISO Code of the country from which the payment methods must be displayed without showing the country selection page to the End User (max length 2) **/
     protected $countryIso;
 
-    /* Project Identifier (max length 6) */
+    /** Project Identifier (max length 6) **/
     protected $projectId;
 
-    /* Payment Identifier. This parameter is used to show a specific payment method to the final user (max length 6) */
+    /** Payment Identifier. This parameter is used to show a specific payment method to the final user (max length 6) **/
     protected $paymentId;
 
-    /* Payment group name. This parameter is used to show a
-    specific group of payment methods to the End User (max length 20) */
+    /** Payment group name. This parameter is used to show a specific group of payment methods to the End User (max length 20) **/
     protected $paymentGroup;
 
-    /* Access token provided by external partner for authentication.
-    Please contact your Account Manager for further information (max length 32) */
+    /** Access token provided by external partner for authentication.
+     *  Contact your Account Manager for further information (max length 32).
+     */
     protected $token;
 
-    /* Parameter used to indicate that a transaction will be processed in test mode.
-    Can be used the value "1" to test integration and "0" to production environment. */
+    /** Parameter used to indicate that a transaction will be processed in test mode.
+     *  Can be used the value "1" to test integration and "0" to production environment.
+     */
     protected $testMode;
 
     /**

@@ -4,7 +4,11 @@ namespace Benoth\BoaCompra;
 
 trait PropertyValidateAffect
 {
-    /* DataValidator object */
+    /**
+     * DataValidator instance.
+     *
+     * @type \Benoth\BoaCompra\DataValidator
+     */
     protected $validator;
 
     /**

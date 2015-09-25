@@ -9,10 +9,10 @@ namespace Benoth\BoaCompra;
  */
 class VirtualStoreIdentification
 {
-    /* Virtual Store Identification on BoaCompra (max length 6) */
+    /** Virtual Store ID on BoaCompra (max length 6) **/
     protected $storeId;
 
-    /* Virtual Store Identification on BoaCompra */
+    /** Virtual Store Key on BoaCompra **/
     protected $key;
 
     /**

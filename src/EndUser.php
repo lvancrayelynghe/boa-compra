@@ -11,43 +11,43 @@ class EndUser
 {
     use PropertyValidateAffect;
 
-    /* End user email (max length 60) (REQUIRED) */
+    /** End user email (max length 60) (REQUIRED) **/
     protected $email;
 
-    /* End User full name (max length 60) */
+    /** End User full name (max length 60) **/
     protected $name;
 
-    /* End User address number (max length 10) */
+    /** End User address number (max length 10) **/
     protected $number;
 
-    /* End User address (max length 60) */
+    /** End User address (max length 60) **/
     protected $street;
 
-    /* End User suburb (max length 60) */
+    /** End User suburb (max length 60) **/
     protected $suburb;
 
-    /* End User postal code (numbers only) (max length 8) */
+    /** End User postal code (numbers only) (max length 8) **/
     protected $zipcode;
 
-    /* End User City (max length 60) (provides anti-fraud analysis and semi-transparent checkout) */
+    /** End User City (max length 60) (provides anti-fraud analysis and semi-transparent checkout) **/
     protected $city;
 
-    /* End User State (max length 30) (provides anti-fraud analysis and semi-transparent checkout) */
+    /** End User State (max length 30) (provides anti-fraud analysis and semi-transparent checkout) **/
     protected $state;
 
-    /* End User Country (max length 20) (provides anti-fraud analysis and semi-transparent checkout) */
+    /** End User Country (max length 20) (provides anti-fraud analysis and semi-transparent checkout) **/
     protected $country;
 
-    /* End User Phone Number (max length 20) (provides anti-fraud analysis and semi-transparent checkout) */
+    /** End User Phone Number (max length 20) (provides anti-fraud analysis and semi-transparent checkout) **/
     protected $phone;
 
-    /* End User CPF (For Brazil only) (max length 20) (provides anti-fraud analysis and semi-transparent checkout) */
+    /** End User CPF (For Brazil only) (max length 20) (provides anti-fraud analysis and semi-transparent checkout) **/
     protected $cpf;
 
-    /* Default Language. Possible values pt_BR, es_ES, en_US, pt_PT, tr_TR */
+    /** Default Language. Possible values pt_BR, es_ES, en_US, pt_PT, tr_TR **/
     protected $language;
 
-    /* Character or player login (max length 100) */
+    /** Character or player login (max length 100) **/
     protected $character;
 
     /**

@@ -9,7 +9,7 @@ namespace Benoth\BoaCompra;
  */
 class PaymentCheckStatus extends PaymentPostBack
 {
-    /* List of BoaCompra error codes and equivalent message */
+    /** List of BoaCompra error codes and equivalent message **/
     protected $errorCodes = array(
         2 => 'Incorrect parameters values',
         3 => 'Order not found',

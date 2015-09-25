@@ -9,14 +9,22 @@ namespace Benoth\BoaCompra;
  */
 class PaymentPostBack
 {
-    /* BoaCompra Billing URL - must be sent through a POST method */
+    /** BoaCompra Billing URL - must be sent through a POST method **/
     const POSTBACK_URL      = 'https://billing.boacompra.com/boacompra.php';
     const POSTBACK_TEST_URL = 'https://billing.boacompra.com/boacompra_test.php';
 
-    /* PaymentNotification received from BoaCompra */
+    /**
+     * PaymentNotification received from BoaCompra.
+     *
+     * @type \Benoth\BoaCompra\PaymentNotification
+     */
     protected $notification;
 
-    /* List of BoaCompra error codes and equivalent message */
+    /**
+     * List of BoaCompra error codes and equivalent message.
+     *
+     * @type array
+     */
     protected $errorCodes = array(
         2 => 'Incorrect parameters values',
         3 => 'Order not found',
@@ -40,7 +48,7 @@ class PaymentPostBack
     /**
      * Get the Notification object.
      *
-     * @return PaymentNotification
+     * @return \Benoth\BoaCompra\PaymentNotification
      */
     public function getPaymentNotification()
     {

@@ -9,10 +9,14 @@ namespace Benoth\BoaCompra;
  */
 class PaymentFormGenerator
 {
-    /* Payment object */
+    /**
+     * Payment instance.
+     *
+     * @type \Benoth\BoaCompra\Payment
+     */
     protected $payment;
 
-    /* List of form keys with corresponding object and method for required values */
+    /** List of form keys with corresponding object and method for required values **/
     protected $mappingsRequired = array(
         'store_id'          => 'vsi:getStoreId',
         'return'            => 'payment:getReturnURL',
@@ -24,7 +28,7 @@ class PaymentFormGenerator
         'client_email'      => 'user:getEmail',
     );
 
-    /* List of form keys with corresponding object and method for optionnal values */
+    /** List of form keys with corresponding object and method for optionnal values **/
     protected $mappingsOptionnal = array(
         'project_id'        => 'payment:getProjectId',
         'payment_id'        => 'payment:getPaymentId',
