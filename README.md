@@ -20,6 +20,7 @@ The following versions of PHP are supported:
 * PHP 5.4
 * PHP 5.5
 * PHP 5.6
+* PHP 7
 * HHVM
 
 The following extensions are also required:
