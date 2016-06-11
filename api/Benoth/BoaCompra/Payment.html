@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>Benoth\BoaCompra\Payment | BoaCompra PHP API</title>
+
+            <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../../css/sami.css">
+        <script src="../../js/jquery-1.11.1.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script src="../../js/typeahead.min.js"></script>
+        <script src="../../sami.js"></script>
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    
+    
+    </head>
+
+    <body id="class" data-name="class:Benoth_BoaCompra_Payment" data-root-path="../../">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                <form id="search-form" action="../../search.html" method="GET">
+            <span class="glyphicon glyphicon-search"></span>
+            <input name="search"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search">
+        </form>
+    </div>
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../../index.html">BoaCompra PHP API</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                    <li><a href="../../classes.html">Classes</a></li>
+                                            <li><a href="../../namespaces.html">Namespaces</a></li>
+                                        <li><a href="../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../traits.html">Traits</a></li>
+                    <li><a href="../../doc-index.html">Index</a></li>
+                    <li><a href="../../search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div class="namespace-breadcrumbs">
+            <ol class="breadcrumb">
+                <li><span class="label label-default">class</span></li>
+                                                            <li><a href="../../Benoth.html">Benoth</a></li>
+                                        <li><a href="../../Benoth/BoaCompra.html">BoaCompra</a></li>
+    
+                <li>Payment</li>
+            </ol>
+        </div>
+                <div id="page-content">
+                
+    <div class="page-header">
+        <h1>Payment</h1>
+    </div>
+
+    <p>    class
+    <strong>Payment</strong>
+</p>
+
+            <div class="description">
+            <p>Generate the payment to sends a payment request to BoaCompra.</p>            <p>Based on documentation v2.48</p>        </div>
+    
+            <h2>Traits</h2>
+
+        
+    <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-6">
+                                            <a href="../../Benoth/BoaCompra/PropertyValidateAffect.html"><abbr title="Benoth\BoaCompra\PropertyValidateAffect">Benoth\BoaCompra\PropertyValidateAffect</abbr></a>
+                                    </div>
+                <div class="col-md-6">
+                    
+
+                </div>
+            </div>
+            </div>
+    
+            <h2>Constants</h2>
+
+            <table class="table table-condensed">
+                    <tr>
+                <td>BILLING_URL</td>
+                <td class="last">
+                    <p><em>
+</em></p>
+                    <p>
+</p>
+                </td>
+            </tr>
+            </table>
+
+    
+    
+            <h2>Methods</h2>
+
+            <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___construct">__construct</a>(
+    <abbr title="Benoth\BoaCompra\Benoth\BoaCompra\VirtualStoreIdentification">VirtualStoreIdentification</abbr> $ident, 
+    <abbr title="Benoth\BoaCompra\Benoth\BoaCompra\EndUser">EndUser</abbr> $endUser, 
+    string $returnUrl, 
+    string $notifyUrl, 
+    string $currencyCode, 
+    string $orderId, 
+    string $orderDescription, 
+    string $amount)
+                                            <p>Create a new Payment.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getBillingURL">getBillingURL</a>()
+                                            <p>Get the BoaCompra Billing URL.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    <a href="../../Benoth/BoaCompra/VirtualStoreIdentification.html"><abbr title="Benoth\BoaCompra\VirtualStoreIdentification">VirtualStoreIdentification</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getVirtualStoreIdentification">getVirtualStoreIdentification</a>()
+                                            <p>Get the Virtual Store Identification.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    <a href="../../Benoth/BoaCompra/EndUser.html"><abbr title="Benoth\BoaCompra\EndUser">EndUser</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getEndUser">getEndUser</a>()
+                                            <p>Get the End User.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getReturnURL">getReturnURL</a>()
+                                            <p>Get the Virtual Store URL used to redirect end users in successful transactions.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getNotifyURL">getNotifyURL</a>()
+                                            <p>Get the Virtual Store URL used by BoaCompra to notify a new payment.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getCurrencyCode">getCurrencyCode</a>()
+                                            <p>Get the Currency code.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getOrderId">getOrderId</a>()
+                                            <p>Get the Order Id.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getOrderDescription">getOrderDescription</a>()
+                                            <p>Get the Order description.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getAmount">getAmount</a>()
+                                            <p>Get the Amount.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getCountryIso">getCountryIso</a>()
+                                            <p>Get the Country ISO.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getProjectId">getProjectId</a>()
+                                            <p>Get the Project ID.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getPaymentId">getPaymentId</a>()
+                                            <p>Get the Payment ID (payment method).</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getPaymentGroup">getPaymentGroup</a>()
+                                            <p>Get the Payment Group (used to show a specific group of payment methods to the End User).</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getToken">getToken</a>()
+                                            <p>Get the Access token provided by external partner for authentication.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getTestMode">getTestMode</a>()
+                                            <p>Get the Test mode (0 = Prod, 1 = Test).</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    <a href="../../Benoth/BoaCompra/Payment.html"><abbr title="Benoth\BoaCompra\Payment">Payment</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_setCountryIso">setCountryIso</a>(
+    string $countryIso)
+                                            <p>Set the ISO Code of the country from which the payment methods must be displayed without
+showing the country selection page to the End User (max length 2).</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    <a href="../../Benoth/BoaCompra/Payment.html"><abbr title="Benoth\BoaCompra\Payment">Payment</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_setProjectId">setProjectId</a>(
+    string $projectId)
+                                            <p>Set the Project Identifier (max length 6).</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    <a href="../../Benoth/BoaCompra/Payment.html"><abbr title="Benoth\BoaCompra\Payment">Payment</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_setPaymentId">setPaymentId</a>(
+    string $paymentId)
+                                            <p>Set the Payment Identifier (max length 6)
+This parameter is used to show a specific payment method to the final user.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    <a href="../../Benoth/BoaCompra/Payment.html"><abbr title="Benoth\BoaCompra\Payment">Payment</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_setPaymentGroup">setPaymentGroup</a>(
+    string $paymentGroup)
+                                            <p>Set the Payment group name (max length 20)
+This parameter is used to show a specific group of payment methods to the End User.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    <a href="../../Benoth/BoaCompra/Payment.html"><abbr title="Benoth\BoaCompra\Payment">Payment</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_setToken">setToken</a>(
+    string $token)
+                                            <p>Set the Access token provided by external partner for authentication (max length 32)
+Please contact your Account Manager for further information.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    <a href="../../Benoth/BoaCompra/Payment.html"><abbr title="Benoth\BoaCompra\Payment">Payment</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_setTestMode">setTestMode</a>(
+    string $testMode)
+                                            <p>Parameter used to indicate that a transaction will be processed in test mode (valid values : 0 / 1)
+Can be used the value "1" to test integration and "0" to production environment.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+            </div>
+
+
+        <h2>Details</h2>
+
+            <div id="method-details">
+                    <div class="method-item">
+                    <h3 id="method___construct">
+        <div class="location">at line 77</div>
+        <code>                    
+    
+    <strong>__construct</strong>(
+    <abbr title="Benoth\BoaCompra\Benoth\BoaCompra\VirtualStoreIdentification">VirtualStoreIdentification</abbr> $ident, 
+    <abbr title="Benoth\BoaCompra\Benoth\BoaCompra\EndUser">EndUser</abbr> $endUser, 
+    string $returnUrl, 
+    string $notifyUrl, 
+    string $currencyCode, 
+    string $orderId, 
+    string $orderDescription, 
+    string $amount)</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Create a new Payment.</p>                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>
+    <abbr title="Benoth\BoaCompra\Benoth\BoaCompra\VirtualStoreIdentification">VirtualStoreIdentification</abbr></td>
+                <td>$ident</td>
+                <td>VirtualStoreIdentification object</td>
+            </tr>
+                    <tr>
+                <td>
+    <abbr title="Benoth\BoaCompra\Benoth\BoaCompra\EndUser">EndUser</abbr></td>
+                <td>$endUser</td>
+                <td>EndUser object</td>
+            </tr>
+                    <tr>
+                <td>
+    string</td>
+                <td>$returnUrl</td>
+                <td>URL used to redirect end users in successful transactions (max length 200)</td>
+            </tr>
+                    <tr>
+                <td>
+    string</td>
+                <td>$notifyUrl</td>
+                <td>URL used to notify the Virtual Store (This URL must bind ports 80 or 443) (max length 200)</td>
+            </tr>
+                    <tr>
+                <td>
+    string</td>
+                <td>$currencyCode</td>
+                <td>Order currency ISO code (Possible values ARS,BOB,BRL,CLP,COP,CRC,EUR,MXN,NIO,PEN,TRY,USD)</td>
+            </tr>
+                    <tr>
+                <td>
+    string</td>
+                <td>$orderId</td>
+                <td>Order Identification on Virtual Store (This must be an unique value) (max length 30)</td>
+            </tr>
+                    <tr>
+                <td>
+    string</td>
+                <td>$orderDescription</td>
+                <td>Small description of the order (max length 200)</td>
+            </tr>
+                    <tr>
+                <td>
+    string</td>
+                <td>$amount</td>
+                <td>Order's total amount (without commas or dots) (max length 7)</td>
+            </tr>
+            </table>
+
+            
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="Benoth\BoaCompra\Exception">Exception</abbr></td>
+                <td>If one of the provided parameters is out of bounds (see parameters description)</td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getBillingURL">
+        <div class="location">at line 96</div>
+        <code>                    
+    string
+    <strong>getBillingURL</strong>()</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Get the BoaCompra Billing URL.</p>                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getVirtualStoreIdentification">
+        <div class="location">at line 106</div>
+        <code>                    
+    <a href="../../Benoth/BoaCompra/VirtualStoreIdentification.html"><abbr title="Benoth\BoaCompra\VirtualStoreIdentification">VirtualStoreIdentification</abbr></a>
+    <strong>getVirtualStoreIdentification</strong>()</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Get the Virtual Store Identification.</p>                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    <a href="../../Benoth/BoaCompra/VirtualStoreIdentification.html"><abbr title="Benoth\BoaCompra\VirtualStoreIdentification">VirtualStoreIdentification</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getEndUser">
+        <div class="location">at line 116</div>
+        <code>                    
+    <a href="../../Benoth/BoaCompra/EndUser.html"><abbr title="Benoth\BoaCompra\EndUser">EndUser</abbr></a>
+    <strong>getEndUser</strong>()</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Get the End User.</p>                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    <a href="../../Benoth/BoaCompra/EndUser.html"><abbr title="Benoth\BoaCompra\EndUser">EndUser</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getReturnURL">
+        <div class="location">at line 126</div>
+        <code>                    
+    string
+    <strong>getReturnURL</strong>()</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Get the Virtual Store URL used to redirect end users in successful transactions.</p>                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getNotifyURL">
+        <div class="location">at line 136</div>
+        <code>                    
+    string
+    <strong>getNotifyURL</strong>()</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Get the Virtual Store URL used by BoaCompra to notify a new payment.</p>                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getCurrencyCode">
+        <div class="location">at line 146</div>
+        <code>                    
+    string
+    <strong>getCurrencyCode</strong>()</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Get the Currency code.</p>                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getOrderId">
+        <div class="location">at line 156</div>
+        <code>                    
+    string
+    <strong>getOrderId</strong>()</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Get the Order Id.</p>                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getOrderDescription">
+        <div class="location">at line 166</div>
+        <code>                    
+    string
+    <strong>getOrderDescription</strong>()</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Get the Order description.</p>                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getAmount">
+        <div class="location">at line 176</div>
+        <code>                    
+    string
+    <strong>getAmount</strong>()</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Get the Amount.</p>                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getCountryIso">
+        <div class="location">at line 186</div>
+        <code>                    
+    string
+    <strong>getCountryIso</strong>()</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Get the Country ISO.</p>                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getProjectId">
+        <div class="location">at line 196</div>
+        <code>                    
+    string
+    <strong>getProjectId</strong>()</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Get the Project ID.</p>                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getPaymentId">
+        <div class="location">at line 206</div>
+        <code>                    
+    string
+    <strong>getPaymentId</strong>()</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Get the Payment ID (payment method).</p>                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getPaymentGroup">
+        <div class="location">at line 216</div>
+        <code>                    
+    string
+    <strong>getPaymentGroup</strong>()</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Get the Payment Group (used to show a specific group of payment methods to the End User).</p>                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getToken">
+        <div class="location">at line 226</div>
+        <code>                    
+    string
+    <strong>getToken</strong>()</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Get the Access token provided by external partner for authentication.</p>                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getTestMode">
+        <div class="location">at line 236</div>
+        <code>                    
+    string
+    <strong>getTestMode</strong>()</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Get the Test mode (0 = Prod, 1 = Test).</p>                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setCountryIso">
+        <div class="location">at line 251</div>
+        <code>                    
+    <a href="../../Benoth/BoaCompra/Payment.html"><abbr title="Benoth\BoaCompra\Payment">Payment</abbr></a>
+    <strong>setCountryIso</strong>(
+    string $countryIso)</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Set the ISO Code of the country from which the payment methods must be displayed without
+showing the country selection page to the End User (max length 2).</p>                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>
+    string</td>
+                <td>$countryIso</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    <a href="../../Benoth/BoaCompra/Payment.html"><abbr title="Benoth\BoaCompra\Payment">Payment</abbr></a></td>
+            <td>This</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="Benoth\BoaCompra\Exception">Exception</abbr></td>
+                <td>If the provided entry is empty or more than 2 characters</td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setProjectId">
+        <div class="location">at line 265</div>
+        <code>                    
+    <a href="../../Benoth/BoaCompra/Payment.html"><abbr title="Benoth\BoaCompra\Payment">Payment</abbr></a>
+    <strong>setProjectId</strong>(
+    string $projectId)</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Set the Project Identifier (max length 6).</p>                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>
+    string</td>
+                <td>$projectId</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    <a href="../../Benoth/BoaCompra/Payment.html"><abbr title="Benoth\BoaCompra\Payment">Payment</abbr></a></td>
+            <td>This</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="Benoth\BoaCompra\Exception">Exception</abbr></td>
+                <td>If the provided entry is empty or more than 6 characters</td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setPaymentId">
+        <div class="location">at line 280</div>
+        <code>                    
+    <a href="../../Benoth/BoaCompra/Payment.html"><abbr title="Benoth\BoaCompra\Payment">Payment</abbr></a>
+    <strong>setPaymentId</strong>(
+    string $paymentId)</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Set the Payment Identifier (max length 6)
+This parameter is used to show a specific payment method to the final user.</p>                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>
+    string</td>
+                <td>$paymentId</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    <a href="../../Benoth/BoaCompra/Payment.html"><abbr title="Benoth\BoaCompra\Payment">Payment</abbr></a></td>
+            <td>This</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="Benoth\BoaCompra\Exception">Exception</abbr></td>
+                <td>If the provided entry is empty or more than 6 characters</td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setPaymentGroup">
+        <div class="location">at line 295</div>
+        <code>                    
+    <a href="../../Benoth/BoaCompra/Payment.html"><abbr title="Benoth\BoaCompra\Payment">Payment</abbr></a>
+    <strong>setPaymentGroup</strong>(
+    string $paymentGroup)</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Set the Payment group name (max length 20)
+This parameter is used to show a specific group of payment methods to the End User.</p>                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>
+    string</td>
+                <td>$paymentGroup</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    <a href="../../Benoth/BoaCompra/Payment.html"><abbr title="Benoth\BoaCompra\Payment">Payment</abbr></a></td>
+            <td>This</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="Benoth\BoaCompra\Exception">Exception</abbr></td>
+                <td>If the provided entry is empty or more than 20 characters</td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setToken">
+        <div class="location">at line 310</div>
+        <code>                    
+    <a href="../../Benoth/BoaCompra/Payment.html"><abbr title="Benoth\BoaCompra\Payment">Payment</abbr></a>
+    <strong>setToken</strong>(
+    string $token)</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Set the Access token provided by external partner for authentication (max length 32)
+Please contact your Account Manager for further information.</p>                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>
+    string</td>
+                <td>$token</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    <a href="../../Benoth/BoaCompra/Payment.html"><abbr title="Benoth\BoaCompra\Payment">Payment</abbr></a></td>
+            <td>This</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="Benoth\BoaCompra\Exception">Exception</abbr></td>
+                <td>If the provided entry is empty or more than 32 characters</td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setTestMode">
+        <div class="location">at line 325</div>
+        <code>                    
+    <a href="../../Benoth/BoaCompra/Payment.html"><abbr title="Benoth\BoaCompra\Payment">Payment</abbr></a>
+    <strong>setTestMode</strong>(
+    string $testMode)</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Parameter used to indicate that a transaction will be processed in test mode (valid values : 0 / 1)
+Can be used the value "1" to test integration and "0" to production environment.</p>                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>
+    string</td>
+                <td>$testMode</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    <a href="../../Benoth/BoaCompra/Payment.html"><abbr title="Benoth\BoaCompra\Payment">Payment</abbr></a></td>
+            <td>This</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="Benoth\BoaCompra\Exception">Exception</abbr></td>
+                <td>If the provided entry is different than 0 or 1</td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+            </div>
+
+    
+            </div>
+                <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
+    </div>
+
+        </div>
+    </div>
+    </body>
+
+</html>
